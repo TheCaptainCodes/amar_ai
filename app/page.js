@@ -71,7 +71,7 @@ export default function Home() {
     } catch (e) {
       setMessages((prev) => [
         ...prev,
-        { role: 'assistant', content: 'Sorry, there was an error contacting Hasnat AI.' },
+        { role: 'assistant', content: 'Sorry, there was an error contacting Amar AI.' },
       ]);
     }
     setLoading(false);
@@ -98,7 +98,7 @@ export default function Home() {
       <Header />
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8">
         <h1 className="text-5xl md:text-5xl font-extrabold text-center mb-4 text-gray-900">
-          Hasnat AI
+          Amar AI
         </h1>
         <p className="text-2xl text-gray-700 text-center max-w-2xl mb-0">
           By Hasan Ali Govt. High School

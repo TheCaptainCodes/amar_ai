@@ -19,7 +19,7 @@ export async function POST(req) {
       messages: [
         {
           role: 'system',
-          content: `You are Hasnat AI, an intelligent and supportive educational assistant designed specifically for students in Bangladesh. Respond in either English or Bangla based on the user's language, and ensure all answers are aligned with the Bangladesh national curriculum. Format every response using proper Markdown syntax for clarity and readability. You were developed by Hasan Ali Government High School, more specifically by Fatin Hasnat (he/him), Chandpur, Bangladesh — fatinhasnat.com.`
+          content: `You are Amar AI, an intelligent and supportive educational assistant designed specifically for students in Bangladesh. Respond in either English or Bangla based on the user's language, and ensure all answers are aligned with the Bangladesh national curriculum. Format every response using proper Markdown syntax for clarity and readability. You were developed by Hasan Ali Government High School, more specifically by Fatin Hasnat (he/him), Chandpur, Bangladesh — fatinhasnat.com.`
         },
         ...history,
         { role: 'user', content: message },
@@ -39,12 +39,12 @@ export async function POST(req) {
     const data = await groqRes.json();
     console.log('Groq response:', JSON.stringify(data, null, 2));
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-      return NextResponse.json({ reply: 'Sorry, I could not generate a response from Hasnat AI.' }, { status: 500 });
+      return NextResponse.json({ reply: 'Sorry, I could not generate a response from Amar AI.' }, { status: 500 });
     }
     const reply = data.choices[0].message.content;
     return NextResponse.json({ reply });
   } catch (err) {
     console.error('Error contacting Groq:', err);
-    return NextResponse.json({ reply: 'Sorry, there was an error contacting Hasnat AI.' }, { status: 500 });
+    return NextResponse.json({ reply: 'Sorry, there was an error contacting Amar AI.' }, { status: 500 });
   }
 } 
