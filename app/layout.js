@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Amar AI – Education Assistant",
+  title: "Hasnat AI – Your Personal Education Assistant",
   description: "A study companion built for students in Bangladesh by Hasan Ali Govt. High School.",
 };
 
