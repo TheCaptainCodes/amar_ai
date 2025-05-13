@@ -1,0 +1,114 @@
+"use client";
+
+import React, { useRef, useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+
+interface Message {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
+interface ChatProps {
+  onSend: (msg: string) => void;
+  loading: boolean;
+  messages: Message[];
+  className?: string;
+}
+
+export default function Chat({ onSend, loading, messages, className = "" }: ChatProps) {
+  const [input, setInput] = useState('');
+  const chatRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleSend = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    onSend(input);
+    setInput('');
+  };
+
+  // Scroll to bottom on new message
+  useEffect(() => {
+    if (chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
+  }, [messages, loading]);
+
+  // Focus input after AI sends a response or on first load
+  useEffect(() => {
+    if (
+      (messages.length > 0 && messages[messages.length - 1].role === 'assistant' && inputRef.current && document.activeElement !== inputRef.current) ||
+      (messages.length === 0 && inputRef.current && document.activeElement !== inputRef.current)
+    ) {
+      inputRef.current.focus();
+    }
+  }, [messages]);
+
+  return (
+    <div className={`w-full max-w-4xl mx-auto flex flex-col h-[90vh] bg-white rounded-xl shadow-lg border border-gray-100 ${className}`}>
+      <div ref={chatRef} className="flex-1 overflow-y-auto p-6 space-y-4 flex flex-col">
+        {messages.length === 0 && (
+          <div className="text-gray-400 text-center mt-12">Ask a question to get started!</div>
+        )}
+        {messages.map((msg, i) => (
+          <div
+            key={i}
+            className={
+              msg.role === 'user'
+                ? 'self-end'
+                : 'self-start'
+            }
+          >
+            <div
+              className={
+                'px-4 py-2 rounded-2xl mb-1 break-words ' +
+                (msg.role === 'user'
+                  ? 'bg-blue-500 text-white whitespace-normal max-w-[90vw] sm:max-w-[70vw] md:max-w-[500px]'
+                  : (msg.content.includes('Sorry, I could not generate a response.') || msg.content.includes('error contacting Amar AI'))
+                    ? 'bg-red-100 text-red-600'
+                    : 'bg-gray-100 text-gray-900 whitespace-pre-wrap max-w-[95vw] sm:max-w-[80vw] md:max-w-[700px]')
+              }
+              style={msg.role === 'assistant' ? { wordBreak: 'break-word', whiteSpace: 'pre-wrap', display: 'inline-block' } : { wordBreak: 'break-word', display: 'inline-block' }}
+            >
+              {msg.role === 'assistant' ? (
+                <ReactMarkdown>{msg.content}</ReactMarkdown>
+              ) : (
+                msg.content
+              )}
+            </div>
+          </div>
+        ))}
+        {loading && (
+          <div className="self-start">
+            <div className="inline-block px-4 py-2 rounded-2xl bg-gray-100 text-gray-900 animate-pulse">
+              Amar AI is thinking…
+            </div>
+          </div>
+        )}
+      </div>
+      <form onSubmit={handleSend} className="flex items-center gap-2 p-4 bg-transparent rounded-b-xl">
+        <div className="flex flex-1 items-center bg-gray-50 border border-gray-200 rounded-full shadow-sm px-4 py-2 focus-within:ring-2 focus-within:ring-primary transition">
+          <input
+            ref={inputRef}
+            type="text"
+            className="flex-1 bg-transparent outline-none border-none text-gray-900 placeholder-gray-400 text-base"
+            placeholder="Ask a question about your studies…"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            disabled={loading}
+          />
+          <button
+            type="submit"
+            className="ml-2 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white hover:bg-orange-500 transition disabled:opacity-50"
+            disabled={loading || !input.trim()}
+            aria-label="Send"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-7.5-15-7.5v6l10 1.5-10 1.5v6z" />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+} 

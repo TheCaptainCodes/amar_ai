@@ -1,103 +1,123 @@
-import Image from "next/image";
+"use client";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Chat from "./components/Chat";
+import ExampleQuestions from "./components/ExampleQuestions";
+import { useState, useRef, useEffect } from "react";
+import React from "react";
+
+const CompactChatInput = React.forwardRef(function CompactChatInput({ onSend, loading }, inputRef) {
+  const [input, setInput] = useState("");
+  const handleSend = (e) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    onSend(input);
+    setInput("");
+  };
+  return (
+    <form onSubmit={handleSend} className="flex items-center gap-2 w-full max-w-2xl mx-auto h-full">
+      <div className="flex flex-1 items-center bg-gray-50 border border-gray-200 rounded-full shadow-sm px-4 py-2 focus-within:ring-2 focus-within:ring-primary transition">
+        <input
+          ref={inputRef}
+          type="text"
+          className="flex-1 bg-transparent outline-none border-none text-gray-900 placeholder-gray-400 text-base"
+          placeholder="Ask a question about your studies…"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          disabled={loading}
+        />
+        <button
+          type="submit"
+          className="ml-2 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white hover:bg-orange-500 transition disabled:opacity-50"
+          disabled={loading || !input.trim()}
+          aria-label="Send"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-7.5-15-7.5v6l10 1.5-10 1.5v6z" />
+          </svg>
+        </button>
+      </div>
+    </form>
+  );
+});
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  // For SSR/Next.js App Router, this can be refactored to use client components as needed
+  const [loading, setLoading] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [expanded, setExpanded] = useState(false);
+  const chatboxRef = useRef(null);
+  const compactInputRef = useRef(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  // Placeholder for sending message to API
+  const handleSend = async (msg) => {
+    setLoading(true);
+    setExpanded(true);
+    // Add user message
+    const newHistory = [...messages, { role: 'user', content: msg }];
+    setMessages(newHistory);
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, history: messages }),
+      });
+      const data = await res.json();
+      setMessages((prev) => [
+        ...prev,
+        { role: 'assistant', content: data.reply || 'Sorry, I could not generate a response.' },
+      ]);
+    } catch (e) {
+      setMessages((prev) => [
+        ...prev,
+        { role: 'assistant', content: 'Sorry, there was an error contacting Hasnat AI.' },
+      ]);
+    }
+    setLoading(false);
+  };
+
+  // Scroll to center chatbox when it expands
+  useEffect(() => {
+    if (messages.length === 1 && chatboxRef.current) {
+      setTimeout(() => {
+        chatboxRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 400); // Wait for the grow animation to finish
+    }
+  }, [messages.length]);
+
+  // Focus input on first load
+  useEffect(() => {
+    if (messages.length === 0 && compactInputRef.current) {
+      compactInputRef.current.focus();
+    }
+  }, [messages.length]);
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-orange-50 via-white to-blue-50">
+      <Header />
+      <main className="flex-1 flex flex-col items-center justify-center px-4 py-8">
+        <h1 className="text-5xl md:text-5xl font-extrabold text-center mb-4 text-gray-900">
+          Hasnat AI
+        </h1>
+        <p className="text-2xl text-gray-700 text-center max-w-2xl mb-0">
+          By Hasan Ali Govt. High School
+        </p>
+        {messages.length === 0 && <ExampleQuestions onSelect={handleSend} />}
+        <div className="w-full flex justify-center" ref={chatboxRef}>
+          <div
+            className={`transition-all duration-500 ease-in-out w-full max-w-4xl ${messages.length === 0 ? 'h-[64px] mt-8' : 'h-[90vh] mt-8'}`}
+            style={{ overflow: 'hidden' }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {messages.length === 0 ? (
+              <CompactChatInput onSend={handleSend} loading={loading} ref={compactInputRef} />
+            ) : (
+              <Chat onSend={handleSend} loading={loading} messages={messages} className="h-full" />
+            )}
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
