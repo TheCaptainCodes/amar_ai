@@ -3,6 +3,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 
 /*
 -----------------------------------
@@ -96,10 +97,35 @@ public:
             }
         }
     }
+
+    void save(const std::string& filename) {
+        std::ofstream file(filename, std::ios::binary);
+        for (auto& row : weights_input_hidden)
+            for (auto& w : row)
+                file.write(reinterpret_cast<char*>(&w), sizeof(double));
+        for (auto& w : weights_hidden_output)
+            file.write(reinterpret_cast<char*>(&w), sizeof(double));
+        file.close();
+    }
+
+    void load(const std::string& filename) {
+        std::ifstream file(filename, std::ios::binary);
+        if (!file) {
+            std::cout << "No saved weights found. Starting fresh.\n";
+            return;
+        }
+        for (auto& row : weights_input_hidden)
+            for (auto& w : row)
+                file.read(reinterpret_cast<char*>(&w), sizeof(double));
+        for (auto& w : weights_hidden_output)
+            file.read(reinterpret_cast<char*>(&w), sizeof(double));
+        file.close();
+    }
 };
 
 int main() {
     NeuralNetwork nn(2, 2);
+    nn.load("../../res/amar ai.brain");
 
     vector<vector<double>> inputs = {
         {0, 0},
@@ -115,6 +141,8 @@ int main() {
             nn.train(inputs[i], targets[i]);
         }
     }
+
+    nn.save("../../res/amar ai.brain");
 
     for (size_t i = 0; i < inputs.size(); ++i) {
         double prediction = nn.feedforward(inputs[i]);
