@@ -9,12 +9,56 @@ import React from "react";
 
 const CompactChatInput = React.forwardRef(function CompactChatInput({ onSend, loading }, inputRef) {
   const [input, setInput] = useState("");
+  const [listening, setListening] = useState(false);
+
+  const recognitionRef = useRef(null);
+
+  useEffect(() => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        setInput(prev => prev + ' ' + transcript);
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
+      };
+
+      recognition.onend = () => {
+        setListening(false);
+      };
+
+      recognitionRef.current = recognition;
+    } else {
+      console.warn("Speech Recognition API not supported in this browser.");
+    }
+  }, []);
+
+  const toggleListening = () => {
+    if (recognitionRef.current) {
+      if (listening) {
+        recognitionRef.current.stop();
+        setListening(false);
+      } else {
+        recognitionRef.current.start();
+        setListening(true);
+      }
+    }
+  };
+
   const handleSend = (e) => {
     e.preventDefault();
     if (!input.trim()) return;
     onSend(input);
     setInput("");
   };
+
   return (
     <form onSubmit={handleSend} className="flex items-center gap-2 w-full max-w-2xl mx-auto h-full">
       <div className="flex flex-1 items-center bg-gray-50 border border-gray-200 rounded-full shadow-sm px-4 py-2 focus-within:ring-2 focus-within:ring-primary transition">
@@ -27,6 +71,19 @@ const CompactChatInput = React.forwardRef(function CompactChatInput({ onSend, lo
           onChange={(e) => setInput(e.target.value)}
           disabled={loading}
         />
+
+        <button
+          type="button"
+          onClick={toggleListening}
+          className={`ml-2 flex items-center justify-center w-10 h-10 rounded-full ${listening ? 'bg-red-500' : 'bg-primary'} text-white hover:bg-orange-500 transition disabled:opacity-50`}
+          aria-label="Voice Input"
+          disabled={loading}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 1.75c-1.24 0-2.25 1.01-2.25 2.25v6c0 1.24 1.01 2.25 2.25 2.25s2.25-1.01 2.25-2.25v-6c0-1.24-1.01-2.25-2.25-2.25zM19.5 10c0 4.15-3.35 7.5-7.5 7.5S4.5 14.15 4.5 10m7.5 11v-3" />
+          </svg>
+        </button>
+
         <button
           type="submit"
           className="ml-2 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white hover:bg-orange-500 transition disabled:opacity-50"
@@ -42,19 +99,17 @@ const CompactChatInput = React.forwardRef(function CompactChatInput({ onSend, lo
   );
 });
 
+
 export default function Home() {
-  // For SSR/Next.js App Router, this can be refactored to use client components as needed
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
   const [expanded, setExpanded] = useState(false);
   const chatboxRef = useRef(null);
   const compactInputRef = useRef(null);
 
-  // Placeholder for sending message to API
   const handleSend = async (msg) => {
     setLoading(true);
     setExpanded(true);
-    // Add user message
     const newHistory = [...messages, { role: 'user', content: msg }];
     setMessages(newHistory);
     try {
@@ -77,16 +132,14 @@ export default function Home() {
     setLoading(false);
   };
 
-  // Scroll to center chatbox when it expands
   useEffect(() => {
     if (messages.length === 1 && chatboxRef.current) {
       setTimeout(() => {
         chatboxRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 400); // Wait for the grow animation to finish
+      }, 400);
     }
   }, [messages.length]);
 
-  // Focus input on first load
   useEffect(() => {
     if (messages.length === 0 && compactInputRef.current) {
       compactInputRef.current.focus();
