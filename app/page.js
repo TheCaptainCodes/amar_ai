@@ -17,23 +17,29 @@ const CompactChatInput = React.forwardRef(function CompactChatInput({ onSend, lo
   };
   return (
     <form onSubmit={handleSend} className="flex items-center gap-2 w-full max-w-2xl mx-auto h-full">
-      <div className="flex flex-1 items-center bg-gray-50 border border-gray-200 rounded-full shadow-sm px-4 py-2 focus-within:ring-2 focus-within:ring-primary transition">
+      <div className="flex flex-1 items-center bg-gray-50 border border-gray-200 rounded-full shadow-sm px-4 py-2 sm:px-6 sm:py-3 focus-within:ring-2 focus-within:ring-primary transition">
         <input
           ref={inputRef}
           type="text"
-          className="flex-1 bg-transparent outline-none border-none text-gray-900 placeholder-gray-400 text-base"
+          className="flex-1 bg-transparent outline-none border-none text-gray-900 placeholder-gray-400 text-base sm:text-lg"
           placeholder="Ask a question about your studies…"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           disabled={loading}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              handleSend(e);
+            }
+          }}
         />
         <button
           type="submit"
-          className="ml-2 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white hover:bg-orange-500 transition disabled:opacity-50"
+          className="ml-2 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300 transition disabled:opacity-50 sm:hidden"
           disabled={loading || !input.trim()}
           aria-label="Send"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-7.5-15-7.5v6l10 1.5-10 1.5v6z" />
           </svg>
         </button>
