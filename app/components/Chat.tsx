@@ -117,4 +117,4 @@ export default function Chat({ onSend, loading, messages, className = "" }: Chat
       </form>
     </div>
   );
-} 
+}

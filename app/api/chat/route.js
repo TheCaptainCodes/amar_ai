@@ -8,7 +8,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req) {
   const { message, history = [] } = await req.json();
-  const apiKey = process.env.GROQ_API_KEY;
+  const apiKey = "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"; // process.env.GROQ_API_KEY;
   if (!apiKey) {
     console.error('Groq API key is missing.');
     return NextResponse.json({ reply: 'Groq API key is missing. Please contact the site admin.' }, { status: 500 });
@@ -24,7 +24,7 @@ export async function POST(req) {
         ...history,
         { role: 'user', content: message },
       ],
-      max_tokens: 512,
+      max_tokens: 1024,
       temperature: 0.7,
     };
     console.log('Sending to Groq:', JSON.stringify(payload, null, 2));
