@@ -3,6 +3,7 @@ import json
 import groq
 import re
 import time
+import random
 from typing import Dict, List, Tuple, Optional
 from dotenv import load_dotenv
 from datetime import datetime
@@ -197,7 +198,7 @@ def generate_questions_for_topic(topic_text: str, metadata: Dict, output_file: s
         if i in processed_chunks:
             log_progress(f"Skipping already processed chunk {i}/{len(chunks)}")
             continue
-            
+        
         log_progress(f"Processing chunk {i}/{len(chunks)}")
         log_progress(f"Chunk size: {len(chunk)} characters")
         log_progress(f"Chunk preview: {chunk[:200]}...")
@@ -230,11 +231,19 @@ def generate_questions_for_topic(topic_text: str, metadata: Dict, output_file: s
         {chunk}
         """
         
-        max_retries = 3
-        retry_delay = 60  # seconds
+        max_retries = 5  # Increased from 3 to 5
+        base_delay = 1
+        max_delay = 32
         
         for retry in range(max_retries):
             try:
+                # Add jitter to the delay
+                delay = min(max_delay, base_delay * (2 ** retry) + random.uniform(0, 1))
+                
+                if retry > 0:
+                    log_progress(f"Retry attempt {retry + 1}/{max_retries} for chunk {i}/{len(chunks)}")
+                    time.sleep(delay)
+                
                 log_progress("Sending request to Groq AI...")
                 response = client.chat.completions.create(
                     model="meta-llama/llama-4-scout-17b-16e-instruct",
@@ -276,9 +285,13 @@ def generate_questions_for_topic(topic_text: str, metadata: Dict, output_file: s
                                 log_progress(f"Failed to save questions for chunk {i}")
                         else:
                             log_progress(f"Invalid response format for chunk {i}")
+                            
                     except json.JSONDecodeError as e:
                         log_progress(f"JSON decode error for chunk {i}: {str(e)}")
                         log_progress(f"Problematic JSON: {json_str[:200]}...")
+                        if retry == max_retries - 1:
+                            log_progress("Failed to parse response after all retries")
+                            continue
                 else:
                     log_progress(f"No valid JSON array found in response for chunk {i}")
                 
@@ -287,29 +300,20 @@ def generate_questions_for_topic(topic_text: str, metadata: Dict, output_file: s
                 
             except Exception as e:
                 error_msg = str(e)
-                log_progress(f"Error generating questions for chunk {i}: {error_msg}")
+                log_progress(f"Error on attempt {retry + 1}: {error_msg}")
                 
-                # Check if it's a rate limit error
-                if "rate_limit_exceeded" in error_msg.lower():
-                    if retry < max_retries - 1:
-                        wait_time = retry_delay * (retry + 1)  # Exponential backoff
-                        log_progress(f"Rate limit reached. Waiting {wait_time} seconds before retry...")
-                        time.sleep(wait_time)
-                        continue
-                    else:
-                        log_progress("Max retries reached for rate limit. Saving progress and exiting.")
-                        save_progress(output_file, processed_chunks)
-                        return all_questions
-                else:
-                    # For other errors, wait a bit and retry
-                    if retry < max_retries - 1:
-                        wait_time = 5 * (retry + 1)
-                        log_progress(f"Error occurred. Waiting {wait_time} seconds before retry...")
-                        time.sleep(wait_time)
-                        continue
-                    else:
-                        log_progress(f"Max retries reached for chunk {i}. Moving to next chunk.")
-                        break
+                # Check for specific error types
+                if "503" in error_msg or "service unavailable" in error_msg.lower():
+                    log_progress("Service unavailable error detected")
+                elif "rate limit" in error_msg.lower():
+                    log_progress("Rate limit error detected")
+                    time.sleep(delay * 2)  # Double the delay for rate limits
+                elif "timeout" in error_msg.lower():
+                    log_progress("Timeout error detected")
+                
+                if retry == max_retries - 1:
+                    log_progress(f"Max retries reached for chunk {i}. Moving to next chunk.")
+                    break
     
     log_progress(f"Total questions generated: {len(all_questions)}")
     return all_questions
