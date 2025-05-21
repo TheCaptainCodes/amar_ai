@@ -1,1 +1,1380 @@
-[]
+[
+  {
+    "instruction": "What is the main purpose of career education?",
+    "input": "",
+    "output": "The main purpose of career education is to help individuals make informed decisions about their career paths and prepare them for the world of work by providing knowledge, skills, and attitudes necessary for choosing and pursuing a career.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "",
+      "chapter_title": "",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why is career education important for students?",
+    "input": "",
+    "output": "Career education is important for students because it helps them to identify their interests, skills, and abilities, and make informed decisions about their future career paths. It also prepares them for the challenges of the job market and helps them to develop skills and competencies required for success in their chosen careers.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "",
+      "chapter_title": "",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What are the benefits of career education in the context of national development?",
+    "input": "",
+    "output": "The benefits of career education in the context of national development include producing a skilled and competent workforce that can contribute to the country's economic growth and development. It also helps to reduce unemployment and poverty, and promotes social mobility and equality.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "",
+      "chapter_title": "",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What are the key factors to consider when choosing a career?",
+    "input": "",
+    "output": "When choosing a career, it's essential to consider factors such as personal interests, skills, and values, as well as job market demand, salary range, and growth opportunities. This helps ensure a fulfilling and sustainable career path.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How can self-awareness help in career decision-making?",
+    "input": "",
+    "output": "Self-awareness plays a crucial role in career decision-making as it helps individuals identify their strengths, weaknesses, and interests. By understanding themselves, they can make informed decisions about their career choices and find a path that aligns with their goals and values.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the importance of exploring career options?",
+    "input": "",
+    "output": "Exploring career options is vital to make informed decisions about one's future. It allows individuals to research and understand various career paths, their requirements, and prospects. This helps in making a well-informed decision and reduces the likelihood of career dissatisfaction.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the main aim of secondary education?",
+    "input": "",
+    "output": "The main aim of secondary education is to make learners fit for entry into higher education by flourishing their latent talents and prospects, and to build the nation with the spirit of the Language Movement and the Liberation War.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What are the goals of including Career Education in the curriculum?",
+    "input": "",
+    "output": "The goals of including Career Education in the curriculum are to make learners skilled and competent citizens of the country based on economic, social, cultural, and environmental settings, and to prepare them for the ever-changing world with a focus on Science and Technology.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why are textbooks distributed free of cost in Bangladesh?",
+    "input": "",
+    "output": "Textbooks are distributed free of cost in Bangladesh as per the instruction of Honorable Prime Minister Sheikh Hasina to make the country free from illiteracy and to ensure the successful implementation of Vision2021.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the main objective of the Career Education textbook?",
+    "input": "",
+    "output": "The main objective of the Career Education textbook is to create eagerness among learners towards jobs and professions and make them respectful towards people of different sections and professions.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is expected to be achieved through the study of Career Education?",
+    "input": "",
+    "output": "It is expected that the study of Career Education will make an important contribution to building up a self-confident new generation to face future educational and professional challenges.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why is respect for different professions emphasized in the textbook?",
+    "input": "",
+    "output": "Respect for different professions is emphasized to make learners respectful towards people of different sections and professions.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the main focus of career education?",
+    "input": "",
+    "output": "The main focus of career education is to help individuals identify strategies for searching and building up the right career.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why is career education considered a vast subject?",
+    "input": "",
+    "output": "Career education is considered a vast subject because it encompasses various activities and topics that help individuals understand and build their careers.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What are the expected outcomes of studying career education?",
+    "input": "",
+    "output": "By studying career education, individuals are expected to be able to identify strategies for searching and building up the right career.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the difference between a job and a profession?",
+    "input": "",
+    "output": "A job and a profession differ in their scope and connotation. A job typically refers to a specific role or position one holds, often focusing on tasks to be completed. A profession, on the other hand, implies a higher level of expertise, training, and often a sense of vocation or calling.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How do the concepts of work, profession, job, career, and vocation relate to one another?",
+    "input": "",
+    "output": "These concepts are interrelated and often used interchangeably in everyday life. However, they have distinct meanings. Work refers to any activity that one does. A profession implies a specialized field requiring expertise. A job is a specific role within a profession or work environment. A career encompasses a series of jobs, experiences, and training programs that help one advance in pay, responsibility, and personal fulfillment. A vocation or occupation suggests a strong inclination or calling towards a particular profession or field.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Which concept is more elaborate or vast, career or job?",
+    "input": "",
+    "output": "The concept of a career is more elaborate or vast compared to a job. A career includes not just a job or profession but encompasses an individual's long-term professional growth, experiences, and progression through various roles, often involving skill development and increased responsibility.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What was Nirupama's strong will dream that she cherished since her student life?",
+    "input": "",
+    "output": "Nirupama's strong will dream was to engage rural women in self-employment.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why did Nirupama choose to study Political Science instead of Social Welfare?",
+    "input": "",
+    "output": "Nirupama chose to study Political Science because she did not get the chance to study Social Welfare, which is closely related to her work, after appearing at the admission test.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How did Nirupama acquire the competency needed for joining the NGO?",
+    "input": "",
+    "output": "Nirupama acquired the competency needed for joining the NGO through various short courses and training programmes.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What will we say the work that Nirupama doing in the garden? Is it work, profession, vocation, job or career?",
+    "input": "",
+    "output": "The work that Nirupama is doing in the garden can be classified as a job. A job is a specific task or activity that one performs in exchange for payment. It is different from work, which is a more general term that refers to any activity that requires effort. Profession refers to an occupation that requires specialized knowledge and skills, often with a formal qualification. Vocation is a calling or a strong desire to pursue a particular occupation. Career refers to a series of jobs, experiences, and training programs that help a person to grow and develop in their profession or field. In this case, Nirupama's work in the garden is a specific task, so it is a job.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Understanding work, job, profession, vocation, and career"
+    }
+  },
+  {
+    "instruction": "How is your answer different from others?",
+    "input": "",
+    "output": "The answer may differ from others based on individual perspectives on the definitions of work, job, profession, vocation, and career. Some might consider Nirupama's work in the garden as work or a vocation if they view it as a fulfilling activity that aligns with her interests or values. Others might see it as a profession if they consider gardening a specialized occupation. However, based on the specific definitions, the most accurate classification is that it is a job.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Understanding work, job, profession, vocation, and career"
+    }
+  },
+  {
+    "instruction": "What term encompasses various professions such as being a doctor or working in an NGO?",
+    "input": "",
+    "output": "The term 'career' includes various professions such as being a doctor or working in an NGO. A career refers to a long-term sequence of related jobs, experiences, and training programs that help individuals move toward their personal and professional goals. Both being a physician and working in an NGO are examples of careers because they involve long-term professional growth and development.",
+    "metadata": {
+      "class": "Class 10",
+      "subject": "Career Education",
+      "book": "NCTB Class 10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career 01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why does the term 'career' apply to both doctors and NGO workers?",
+    "input": "",
+    "output": "The term 'career' applies to both doctors and NGO workers because it refers to a long-term sequence of related jobs, experiences, and training programs. Both professions involve a series of jobs that offer opportunities for growth, development, and advancement. A doctor may start as a general practitioner and move to a specialist, while an NGO worker may start in an entry-level position and move to a leadership role. In both cases, the career path provides a framework for professional development and progression.",
+    "metadata": {
+      "class": "Class 10",
+      "subject": "Career Education",
+      "book": "NCTB Class 10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career 01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the definition of work in the context of career education?",
+    "input": "",
+    "output": "Any mental or physical activity for serving any purpose, which may or may not be for earning money.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How does a profession differ from a vocation?",
+    "input": "",
+    "output": "A profession requires special education and training, whereas a vocation does not require special education and long-term training.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Can a job or vocation be considered a career? Why or why not?",
+    "input": "",
+    "output": "No, a job or vocation is not necessarily a career. A profession is closely related to a career, but a job or vocation is not. A career typically implies a long-term sequence of related jobs, experiences, and training programs.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the general concept of work?",
+    "input": "",
+    "output": "The general concept of work includes any kind of activity that a person does, whether it is related to a job, profession, career, or everyday life activities such as studying, eating, exercising, or marketing.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Can you give examples of work in everyday life?",
+    "input": "",
+    "output": "Examples of work in everyday life include studying, eating, exercising, and marketing. These activities are considered work in a general sense, even if they are not necessarily related to a job, profession, or career.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How does work relate to job, profession, and career?",
+    "input": "",
+    "output": "Work is a broader concept that encompasses any activity done by a person. A job, profession, or career involves specific types of work that a person does as part of their occupation or long-term goals. In other words, all jobs, professions, and careers involve work, but not all work is necessarily a job, profession, or career.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is a job in the context of career education?",
+    "input": "",
+    "output": "A job refers to the definite post or position that an individual occupies in a workplace. Examples include a physician in a government hospital, a gardener in a district administration office, a school guard, or an assistant in a hospital laboratory.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Job"
+    }
+  },
+  {
+    "instruction": "Can you give examples of different types of jobs?",
+    "input": "",
+    "output": "Examples of jobs include a physician in a government hospital, a gardener in a district administration office, a school guard, or an assistant in a hospital laboratory. These roles are specific positions that individuals occupy in various workplaces.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Job"
+    }
+  },
+  {
+    "instruction": "What characterizes a job in terms of its definition?",
+    "input": "",
+    "output": "A job is characterized by being a definite post or position that an individual occupies in a workplace. It is a specific role that a person holds within an organization or institution.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Job"
+    }
+  },
+  {
+    "instruction": "What is the main difference between vocation and profession?",
+    "input": "",
+    "output": "The main difference between vocation and profession is that a profession requires institutional education and training, whereas a vocation does not. For example, an architect needs education and training in architecture to design buildings, making it a profession, while a mason's work is considered a vocation as it does not require formal education and training.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Vocation and Profession"
+    }
+  },
+  {
+    "instruction": "Can you give an example of a profession and a vocation?",
+    "input": "",
+    "output": "An example of a profession is an architect, who designs buildings and requires education and training in architecture. An example of a vocation is a mason, who is a labourer and does not require formal education and training to perform their job.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Vocation and Profession"
+    }
+  },
+  {
+    "instruction": "Why does a profession require institutional education and training?",
+    "input": "",
+    "output": "A profession requires institutional education and training because it involves specialized knowledge, skills, and expertise that need to be acquired through formal learning and practical experience. This is necessary to ensure that professionals are competent and qualified to perform their jobs safely and effectively.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Vocation and Profession"
+    }
+  },
+  {
+    "instruction": "What is the definition of a career?",
+    "input": "",
+    "output": "A career is the combined shape of all kinds of works, professions, jobs or the experience of life which a man gains in whole of his life.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the difference between a job, profession, vocation, and career?",
+    "input": "",
+    "output": "A job is a specific position or role one holds, a profession is a field or occupation that requires specialized training or expertise, a vocation is a calling or strong inclination towards a particular occupation, and a career is a long-term sequence of related jobs, experiences, and training programs.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How would you categorize Nirupama's 15 years of experience as an NGO worker?",
+    "input": "",
+    "output": "This can be considered as her career, as it represents a long-term sequence of related jobs and experiences.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the main objective of the project described in the topic text?",
+    "input": "",
+    "output": "The main objective of the project is to find out about people of different professions and vocations, gather information related to their professions, and understand the various kinds of professions available.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How can knowing about different professions help an individual?",
+    "input": "",
+    "output": "Knowing about different professions can help an individual choose their own profession in the future by providing them with information and insights into various career options.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the benefit of exploring various professions and vocations?",
+    "input": "",
+    "output": "Exploring various professions and vocations helps individuals understand the different kinds of professions available, which can aid in making informed decisions about their future career.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the purpose of listing various professions in a classroom setting?",
+    "input": "",
+    "output": "The purpose is to create awareness about different career options, encourage exploration, and help students understand the wide range of professions available, promoting career education and informed decision-making.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Exploring Professions"
+    }
+  },
+  {
+    "instruction": "How can writing down various professions on the board help students?",
+    "input": "",
+    "output": "It helps students by providing a visual representation of the numerous career paths available, encouraging them to think about their own career aspirations, and fostering a broader understanding of the professional world.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Career Awareness"
+    }
+  },
+  {
+    "instruction": "What should be done if a profession is repeatedly written on the board?",
+    "input": "",
+    "output": "If a profession is repeatedly written, it should be erased to make room for different professions, ensuring a diverse list that exposes students to a wide array of career options.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Managing the List of Professions"
+    }
+  },
+  {
+    "instruction": "What is the main purpose of choosing a profession in a group project?",
+    "input": "",
+    "output": "The main purpose of choosing a profession in a group project is to understand the responsibilities, challenges, and requirements of that profession, and to explore how it aligns with individual career goals and interests.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Exploring Professions"
+    }
+  },
+  {
+    "instruction": "What are the benefits of exploring different professions in a group setting?",
+    "input": "",
+    "output": "Exploring different professions in a group setting allows individuals to share perspectives, gain insights from others, and develop a deeper understanding of various career paths. It also fosters teamwork, communication, and problem-solving skills.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Exploring Professions"
+    }
+  },
+  {
+    "instruction": "How can choosing a profession for a project help individuals in their career development?",
+    "input": "",
+    "output": "Choosing a profession for a project can help individuals in their career development by allowing them to research and explore the skills, knowledge, and qualifications required for that profession. This can help them identify their strengths and weaknesses, and make informed decisions about their future career paths.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Exploring Professions"
+    }
+  },
+  {
+    "instruction": "What types of information can be collected from job advertisements?",
+    "input": "",
+    "output": "From job advertisements, one can collect information about the types of posts or jobs available, responsibilities and tasks to be performed, maximum qualifications required, experience needed, salary structure, and definite skills required.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Job Advertisement Analysis"
+    }
+  },
+  {
+    "instruction": "How can analyzing job advertisements help in career planning?",
+    "input": "",
+    "output": "Analyzing job advertisements can help in understanding the current job market trends, required skills and qualifications for various professions, and the expectations of employers. This information can guide individuals in making informed decisions about their career paths, preparing them for the job market, and setting realistic career goals.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Career Planning"
+    }
+  },
+  {
+    "instruction": "What skills are typically sought after in job advertisements?",
+    "input": "",
+    "output": "Typically, job advertisements seek candidates with strong communication skills, problem-solving abilities, teamwork and leadership skills, adaptability, time management, and specific technical or professional skills relevant to the job. The specific skills needed can vary widely depending on the job and industry.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Job Market Skills"
+    }
+  },
+  {
+    "instruction": "What are some creative ways to present information?",
+    "input": "",
+    "output": "Some creative ways to present information include using charts, pictures, graphs, cartoons, posters, and collecting magazines, newspapers, advertisements, and pictures.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How can visual aids enhance a presentation?",
+    "input": "",
+    "output": "Visual aids can make a presentation more engaging and help to effectively communicate information. They can also help to capture the audience's attention and convey complex information in a simple way.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What materials can be used to create a visually appealing presentation?",
+    "input": "",
+    "output": "Materials such as magazines, newspapers, advertisements, pictures, and collected data can be used to create a visually appealing presentation.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What are the main characteristics of a career based on the given definitions?",
+    "input": "",
+    "output": "The main characteristics of a career include: it is a combination of various jobs, posts, works, honour, and experience; it involves one or more kinds of jobs done for a long period; it is a gradual course of lifelong development or a definite part of life, and it involves orderly, aim-based, stage-by-stage, and well-balanced development.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How does career development occur?",
+    "input": "",
+    "output": "Career development occurs stage by stage, involving orderly, aim-based, and well-balanced progression. It is a lifelong process where an individual develops their career through various stages of planning.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why is it important to respect people in all professions?",
+    "input": "",
+    "output": "It is important to respect people in all professions because each profession can be beneficial to society. People in different professions have different duties, responsibilities, skills, and educational qualifications, and behaving well with them and helping them in their work is our responsibility.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why is it important to know oneself when choosing a career?",
+    "input": "",
+    "output": "Knowing oneself is crucial for career development because it allows individuals to consider their interests, likes, dislikes, skills, competencies, and values. This self-awareness helps in making informed decisions about career choices, ensuring that the selected path aligns with one's strengths and preferences, which can lead to job satisfaction and success.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Knowing Oneself"
+    }
+  },
+  {
+    "instruction": "What are the benefits of having proper information about various professions and jobs?",
+    "input": "",
+    "output": "Having proper information about various professions and jobs helps individuals choose the right profession or job that aligns with their skills, competencies, and interests. It provides insights into the necessary skills, training, and experience required for career building, as well as the types of duties and responsibilities associated with specific jobs.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Knowing about Varieties of Professions, Vocations and Jobs"
+    }
+  },
+  {
+    "instruction": "How can understanding one's skills and competencies impact career choices?",
+    "input": "",
+    "output": "Understanding one's skills and competencies plays a significant role in making informed career choices. When individuals are aware of their strengths and weaknesses, they can select careers that align with their abilities, leading to better performance, job satisfaction, and career advancement opportunities.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Knowing Oneself"
+    }
+  },
+  {
+    "instruction": "What is the importance of determining aim and objectives in career development?",
+    "input": "",
+    "output": "Determining aim and objectives in career development is essential as it allows individuals to choose a vocation or profession and plan clearly for its preparation, leading to successful career planning and progression.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Determining Aim and Objective"
+    }
+  },
+  {
+    "instruction": "What are required to achieve a determined career goal?",
+    "input": "",
+    "output": "To achieve a determined career goal, one needs to acquire definite competency and skills required for a specific profession or vocation through various means such as educational qualifications, experience of co-curricular activities, training, institutional and non-institutional experiences.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Determining Aim and Objective"
+    }
+  },
+  {
+    "instruction": "Why is it necessary to continue achieving new competency and skills in a profession or vocation?",
+    "input": "",
+    "output": "It is necessary to continue achieving new competency and skills in a profession or vocation to become successful and uphold that success, as requirements and standards may evolve over time.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Determining Aim and Objective"
+    }
+  },
+  {
+    "instruction": "What are the key steps involved in applying for a job?",
+    "input": "",
+    "output": "The key steps involved in applying for a job include: looking for job advertisements in newspapers and the internet, evaluating the job postings, preparing a Curriculum Vitae (CV) that mentions educational qualifications, professional experience, skills, and competency, and submitting the application. Additionally, one may need to prepare for written exams, viva voce, or interviews.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Looking for Job"
+    }
+  },
+  {
+    "instruction": "Why is it important to consider one's competency, skills, interest, and values when applying for a job?",
+    "input": "",
+    "output": "It is important to consider one's competency, skills, interest, and values when applying for a job because it helps in choosing a job that is a good fit for the individual. This increases the chances of job satisfaction, success, and long-term career growth.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Looking for Job"
+    }
+  },
+  {
+    "instruction": "What is the purpose of a Curriculum Vitae (CV) in a job application?",
+    "input": "",
+    "output": "The purpose of a Curriculum Vitae (CV) in a job application is to provide a concise and clear overview of one's educational qualifications, professional experience, skills, and competency. This helps the job provider to assess the candidate's suitability for the job.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Looking for Job"
+    }
+  },
+  {
+    "instruction": "What is the main reason for a person to change their job?",
+    "input": "",
+    "output": "The main reason for a person to change their job is to get an opportunity for a better job.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Changing Job if Necessary"
+    }
+  },
+  {
+    "instruction": "What does career mean in the context of job and profession?",
+    "input": "",
+    "output": "Career does not mean any definite job or profession, rather it means the combination of different jobs and experiences on the way to life.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Changing Job if Necessary"
+    }
+  },
+  {
+    "instruction": "Why trying for a new job considered a part of career development?",
+    "input": "",
+    "output": "Trying for a new job considering changes in own interest, liking, skills, etc. is a part of career development as it leads to career growth and exploration of better opportunities.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Changing Job if Necessary"
+    }
+  },
+  {
+    "instruction": "What is line development in career progression?",
+    "input": "",
+    "output": "Line development refers to the promotion from a lower to an upper post within the same department or line of work, allowing for gradual career growth.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Line Development"
+    }
+  },
+  {
+    "instruction": "Can you provide an example of line development?",
+    "input": "",
+    "output": "An example of line development is when an individual joins as an assistant secretary and is gradually promoted to the post of a secretary.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Line Development"
+    }
+  },
+  {
+    "instruction": "What is the benefit of line development in career growth?",
+    "input": "",
+    "output": "The benefit of line development is that it allows for gradual career growth and promotion within the same department or line of work, providing opportunities for professional advancement.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Line Development"
+    }
+  },
+  {
+    "instruction": "What is skill-based development?",
+    "input": "",
+    "output": "Skill-based development refers to the gradual improvement and increase in skills of an individual in a specific work or subject through continuous practice and experience.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Skill Based Development"
+    }
+  },
+  {
+    "instruction": "Can you give an example of skill-based development?",
+    "input": "",
+    "output": "An example of skill-based development is a teacher continuously teaching science and refining their teaching skills over time, leading to an increase in their expertise.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Skill Based Development"
+    }
+  },
+  {
+    "instruction": "What is a key characteristic of skill-based development?",
+    "input": "",
+    "output": "A key characteristic of skill-based development is that it involves continuous practice and experience in a specific work or subject, leading to gradual improvement and skill enhancement.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Skill Based Development"
+    }
+  },
+  {
+    "instruction": "What is spiral development in the context of career development?",
+    "input": "",
+    "output": "Spiral development refers to the gradual growth of a person's knowledge, skills, and experiences over time. It involves starting with a specific job or subject and gradually taking on various tasks, acquiring new skills, and gaining diverse experiences in different workplaces.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Spiral Development"
+    }
+  },
+  {
+    "instruction": "Can you describe an example of spiral development in a career?",
+    "input": "",
+    "output": "An example of spiral development is a science teacher who, in addition to teaching science, receives training in Information and Communication Technology (ICT). The teacher then uses this new skill to train other teachers in ICT at another school. This demonstrates spiral development as the teacher's career evolves with new skills and experiences.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Spiral Development"
+    }
+  },
+  {
+    "instruction": "What are the key characteristics of spiral development in career growth?",
+    "input": "",
+    "output": "The key characteristics of spiral development in career growth include: starting with a specific job or subject, gradual acquisition of new skills and experiences, taking on various tasks, and working in different workplaces. This leads to a diversified and enriched career path.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Spiral Development"
+    }
+  },
+  {
+    "instruction": "What is dynamic or continuous development in a person's career?",
+    "input": "",
+    "output": "Dynamic or continuous development in a person's career refers to a continuous or huge change seen in a man's career, where he works with different subjects or in different kinds of workplaces at different times, and these changes take place disorderly.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the Life Rainbow model established by Psychologist Donald Super?",
+    "input": "",
+    "output": "The Life Rainbow model, established by Psychologist Donald Super, is a model that represents the stages of a person's career development, arranged step by step like a rainbow, and includes stages such as Exploration, Establishment, Maintenance, and Decline.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What are the factors that influence a person's career development according to the Life Rainbow model?",
+    "input": "",
+    "output": "The factors that influence a person's career development, according to the Life Rainbow model, include environmental determinants such as labor market, employment practices, and socioeconomic factors, as well as psychological determinants such as attitude, need, and work skills, and biological and historical factors.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the main objective of interviewing a retired person?",
+    "input": "",
+    "output": "The main objective of interviewing a retired person is to know their life history from their boyhood till now, understanding their career journey, challenges, and experiences.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Interviewing a Retired Person"
+    }
+  },
+  {
+    "instruction": "Why is it necessary to interview the retired person several times?",
+    "input": "",
+    "output": "It is necessary to interview the retired person several times to gather comprehensive information about their life history, to clarify any doubts, and to gain a deeper understanding of their career and life experiences.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Interviewing a Retired Person"
+    }
+  },
+  {
+    "instruction": "What can be learned from interviewing a retired person?",
+    "input": "",
+    "output": "By interviewing a retired person, one can learn about their career journey, challenges they faced, decisions they made, and experiences they gained, which can provide valuable insights and lessons for one's own career planning and development.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Interviewing a Retired Person"
+    }
+  },
+  {
+    "instruction": "What is the purpose of creating a profile with pseudonym in career education?",
+    "input": "",
+    "output": "The purpose of creating a profile with pseudonym is to protect personal information while still allowing individuals to share their experiences and characteristics, making it easier to arrange and analyze their life stages and career trends.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What type of information should be included in a career profile?",
+    "input": "",
+    "output": "A career profile should include information such as: name (pseudonym), gender, date of birth and birthplace, education life, service life, personal life, retired life (if applicable), notable achievements, challenges faced and overcome, decisions that could have been better, and other life events that influenced career decisions.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why is career education necessary?",
+    "input": "",
+    "output": "Career education is necessary as it helps individuals understand their career paths, make informed decisions, and reflect on their experiences, leading to positive changes in their lives and better career outcomes.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What are the importance of studying Career Education?",
+    "input": "",
+    "output": "Studying Career Education helps individuals make informed decisions about their career paths, understand the importance of acquiring knowledge, skills, and attitude about career, and become aware of how career choices can impact their personal and social lives.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How does Career Education help in decision-making?",
+    "input": "",
+    "output": "Career Education helps individuals take informed decisions about their career paths by considering various factors such as job market, societal needs, and personal goals, and understanding the impact of these decisions on their personal and social lives.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the role of Career Education in inspiring learning?",
+    "input": "",
+    "output": "Career Education inspires learning by helping individuals understand the relevance of what they are learning to their future goals and profession, and by developing their internal motivation to learn and acquire necessary skills.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What are the primary reasons people work, according to the text?",
+    "input": "",
+    "output": "People work to satisfy their fundamental needs and those of their family, and also for self-satisfaction.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How does career education help individuals in terms of work and personal development?",
+    "input": "",
+    "output": "Career education helps individuals choose a comparatively favorable work and become successful. It also helps develop a positive outlook towards work, and provides the knowledge, skills, and experience needed for various jobs and professions.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What skills are considered essential for any kind of work, as mentioned in the text?",
+    "input": "",
+    "output": "Minimum level of literacy, language skills (especially oral communication skills), mathematical skills, inspiration for earning, and the attitude to establish relations through cooperation in work are considered essential.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What are the key stages to determine one's career?",
+    "input": "",
+    "output": "The key stages to determine one's career are: 1) Know oneself, 2) Know about various kinds of works, professions or jobs, 3) Determine the next planning, and 4) Determine the doings.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why is it important to learn about different professions and jobs?",
+    "input": "",
+    "output": "Learning about different professions and jobs helps individuals understand the various options available, allowing them to make informed decisions about their career choices and find a suitable workplace based on their interests, skills, and values.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How can self-reflection help in career planning?",
+    "input": "",
+    "output": "Self-reflection helps individuals identify their interests, values, strengths, and weaknesses, which are essential in determining a suitable career path and making informed decisions about their future.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What are the key factors to consider when planning a career?",
+    "input": "",
+    "output": "When planning a career, key factors to consider include requisite educational qualifications, skills, experience, and training necessary for the profession. Additionally, it's essential to assess one's interest, competency, and values to ensure a good fit. Flexibility in planning is also crucial as interests and needs can change over time.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "How can one acquire the necessary competency and skills for a chosen profession?",
+    "input": "",
+    "output": "One can acquire necessary competency and skills by taking help from teachers and others, participating in co-curricular activities, and adjusting reading habits. It's also important to identify areas where more skills are needed and create a plan to acquire them.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "Why is flexibility important in career planning?",
+    "input": "",
+    "output": "Flexibility is important in career planning because interests, needs, and values can change over time. Having a flexible plan allows for adjustments to be made as needed, ensuring that career goals remain aligned with one's evolving aspirations.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": ""
+    }
+  },
+  {
+    "instruction": "What is the significance of interest in determining a career?",
+    "input": "",
+    "output": "Interest plays a crucial role in determining a career as it motivates an individual to read, work, and excel in a particular subject or field. Without interest, even with competency, a person may not be successful in their work.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "tests and surveys"
+    }
+  },
+  {
+    "instruction": "How can a personality test help in understanding one's career inclination?",
+    "input": "",
+    "output": "A personality test can help individuals understand their strengths, weaknesses, and interests, which can guide them in choosing a suitable career. By assessing various aspects of personality, such as extroversion, introversion, and skills, individuals can identify areas where they are more inclined to excel.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "tests and surveys"
+    }
+  },
+  {
+    "instruction": "What are some essential competencies and skills required for entering the service sector?",
+    "input": "",
+    "output": "Some essential competencies and skills required for entering the service sector include self-consciousness, knowledge in numbers or mathematical skills, solving problems, leadership, competency in group work, and writing skills.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "My Competency and Skills"
+    }
+  },
+  {
+    "instruction": "What are the key components of effective communication?",
+    "input": "",
+    "output": "Effective communication includes speaking, listening, understanding, and writing clearly. It involves presenting information properly according to various categories of readers, influencing others, negotiating, expressing sympathy, building relationships, sharing information, and presenting concepts logically.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Communication"
+    }
+  },
+  {
+    "instruction": "What are the characteristics of working in groups?",
+    "input": "",
+    "output": "Working in groups involves collaborating with people regardless of age, gender, caste, creed, and political opinion. Its characteristics include understanding the qualities of group members, being aware of one's own qualities and shortcomings, setting group goals, working in agreement, leading, counseling, inspiring, making decisions, and participating to achieve success.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Work in Groups"
+    }
+  },
+  {
+    "instruction": "What are the steps to solve problems effectively?",
+    "input": "",
+    "output": "To solve problems effectively, one should: analyze data and information, examine or verify suppositions, identify the problem and its reasons, find creative and innovative solutions, use different means to solve the problem, keep alternative planning, determine alternative means, evaluate them, use mathematical knowledge and skills, and consider the anxiety of stakeholders.",
+    "metadata": {
+      "class": "Class10",
+      "subject": "Career Education",
+      "book": "NCTB Class10 Career Education",
+      "chapter": "One",
+      "chapter_title": "Me and My Career01-24",
+      "topic": "Solving Problems"
+    }
+  }
+]
