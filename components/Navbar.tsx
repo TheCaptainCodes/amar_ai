@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignInButton, SignedIn, SignedOut, UserButton, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import NavItems from "@/components/NavItems";
 
 const Navbar = () => {
@@ -24,7 +24,12 @@ const Navbar = () => {
                     </SignInButton>
                 </SignedOut>
                 <SignedIn>
+                  <ClerkLoaded>
                     <UserButton />
+                  </ClerkLoaded>
+                   <ClerkLoading>
+                      {/* Optional: Add a placeholder or null while loading */}
+                    </ClerkLoading>
                 </SignedIn>
             </div>
         </nav>
