@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { SignInButton, SignedIn, SignedOut, UserButton, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import NavItems from "@/components/NavItems";
 
@@ -8,12 +7,9 @@ const Navbar = () => {
         <nav className="navbar">
             <Link href="/">
                 <div className="flex items-center gap-2.5 cursor-pointer">
-                    <Image
-                        src="/images/logo.svg"
-                        alt="logo"
-                        width={46}
-                        height={44}
-                    />
+                    <h1 className="text-2xl font-extrabold text-black">
+                        Amar AI
+                    </h1>
                 </div>
             </Link>
             <div className="flex items-center gap-8">
