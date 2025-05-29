@@ -59,7 +59,7 @@ export default function Chat({ onSend, loading, messages, className = "" }: Chat
   }, [messages]);
 
   return (
-    <div className={`w-full max-w-4xl mx-auto flex flex-col h-[90vh] bg-white rounded-xl shadow-lg border border-gray-100 ${className}`}>
+    <div className={`w-full max-w-4xl min-w-4xl mx-auto flex flex-col h-[90vh] bg-white rounded-xl shadow-lg border border-gray-100 ${className}`}>
       <div ref={chatRef} className="flex-1 overflow-y-auto p-6 space-y-4 flex flex-col">
         {messages.length === 0 && (
           <div className="text-gray-400 text-center mt-12">Ask a question to get started!</div>
@@ -78,7 +78,7 @@ export default function Chat({ onSend, loading, messages, className = "" }: Chat
                 'px-4 py-2 rounded-2xl mb-1 break-words ' +
                 (msg.role === 'user'
                   ? 'bg-blue-500 text-white whitespace-normal max-w-[90vw] sm:max-w-[70vw] md:max-w-[500px]'
-                  : (msg.content.includes('Sorry, I could not generate a response.') || msg.content.includes('error contacting Amar AI'))
+                  : (msg.content.includes('Sorry, I could  not generate a response.') || msg.content.includes('error contacting Amar AI'))
                     ? 'bg-red-100 text-red-600'
                     : 'bg-gray-100 text-gray-900 whitespace-pre-wrap max-w-[95vw] sm:max-w-[80vw] md:max-w-[700px] markdown-body')
               }
@@ -96,12 +96,14 @@ export default function Chat({ onSend, loading, messages, className = "" }: Chat
                     ul: ({node, ...props}) => <ul className="list-disc list-inside my-2" {...props} />,
                     ol: ({node, ...props}) => <ol className="list-decimal list-inside my-2" {...props} />,
                     li: ({node, ...props}) => <li className="my-1" {...props} />,
-                    code: ({node, inline, ...props}) => 
-                      inline ? (
+                    code: ({node, className, ...props}) => {
+                      const isInline = !className || !className.includes('block');
+                      return isInline ? (
                         <code className="bg-gray-200 px-1 py-0.5 rounded" {...props} />
                       ) : (
                         <code className="block bg-gray-800 text-white p-4 rounded-lg my-2 overflow-x-auto" {...props} />
-                      ),
+                      );
+                    },
                     pre: ({node, ...props}) => <pre className="my-2" {...props} />,
                     blockquote: ({node, ...props}) => (
                       <blockquote className="border-l-4 border-gray-300 pl-4 my-2 italic" {...props} />
