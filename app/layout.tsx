@@ -39,7 +39,8 @@ export default function RootLayout({
         </ClerkProvider>
         {/* Simple footer */}
         <footer className="text-center py-4 text-gray-600 text-sm">
-          © {new Date().getFullYear()} Amar AI
+          © {new Date().getFullYear()} Amar AI<br />
+          By Students, For Students
         </footer>
       </body>
     </html>
