@@ -29,7 +29,7 @@ export default function RootLayout({
         <link rel="manifest" href="/logo_icons/site.webmanifest" />
         <link rel="shortcut icon" href="/logo_icons/favicon.ico" />
       </head>
-      <body className={`${bricolage.variable} antialiased flex flex-col min-h-screen`}>
+      <body className={`${bricolage.variable} antialiased flex flex-col w-full min-h-screen`}>
         <NextTopLoader showSpinner={false} />
         <ClerkProvider appearance={{ variables: { colorPrimary: '#fe5933' }} }>
           <Navbar />
@@ -37,11 +37,6 @@ export default function RootLayout({
             {children}
           </div>
         </ClerkProvider>
-        {/* Simple footer */}
-        <footer className="text-center py-4 text-gray-600 text-sm">
-          © {new Date().getFullYear()} Amar AI<br />
-          By Students, For Students
-        </footer>
       </body>
     </html>
   );

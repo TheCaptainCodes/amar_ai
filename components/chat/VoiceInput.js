@@ -26,6 +26,7 @@ const VoiceInput = ({ onTranscript, setInput }) => {
 
 
   const toggleListening = () => {
+    console.log('toggleListening called. Current transcript:', transcript);
     if (!browserSupportsSpeechRecognition) {
       setError('Speech recognition is not supported in your browser');
       return;
@@ -34,6 +35,7 @@ const VoiceInput = ({ onTranscript, setInput }) => {
     if (listening) {
       // When stopping, we consider the current transcript as final
       SpeechRecognition.stopListening();
+      console.log('Checking transcript before submit:', transcript);
       if (transcript.trim()) {
         console.log('Submitting transcript:', transcript);
         onTranscript(transcript);

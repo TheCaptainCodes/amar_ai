@@ -103,7 +103,7 @@ export default function Home() {
   }, [messages.length]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-orange-50 via-white to-blue-50">
+    <div className="flex flex-col w-full ">
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 pt-0">
         <h1 className="text-5xl md:text-5xl font-extrabold text-center mb-0 text-gray-900 mt-5">
           Amar AI
