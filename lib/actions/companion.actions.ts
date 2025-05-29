@@ -280,13 +280,15 @@ export const createCompanion = async (formData: CreateCompanion) => {
             // Convert to bytes
             const pdfBytes = await pdfDoc.save();
 
-            // Upload to Supabase Storage
-            const filename = `${formData.name}-${Date.now()}.pdf`;
-            const { data: uploadData, error: uploadError } = await supabase.storage
+            // Generate a URL-safe filename
+            const safeFilename = `${formData.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()}-${Date.now()}.pdf`;
+
+            // Upload the PDF to Supabase storage
+            const { error: uploadError } = await supabase.storage
                 .from('notes')
-                .upload(filename, pdfBytes, {
+                .upload(safeFilename, pdfBytes, {
                     contentType: 'application/pdf',
-                    upsert: true
+                    cacheControl: '3600'
                 });
 
             if (uploadError) throw new Error(uploadError.message);
@@ -294,7 +296,7 @@ export const createCompanion = async (formData: CreateCompanion) => {
             // Get a signed URL that expires in 1 week
             const { data, error: urlError } = await supabase.storage
                 .from('notes')
-                .createSignedUrl(filename, 60 * 60 * 24 * 7); // 1 week in seconds
+                .createSignedUrl(safeFilename, 60 * 60 * 24 * 7); // 1 week in seconds
 
             if (urlError || !data?.signedUrl) { // Add check for data existence
                 throw new Error(urlError?.message || 'Failed to generate signed URL');
@@ -346,12 +348,20 @@ export const getCompanion = async (id: string) => {
 
     const { data, error } = await supabase
         .from('companions')
-        .select()
-        .eq('id', id);
+        .select('*')
+        .eq('id', id)
+        .single();
 
-    if(error) return console.log(error);
+    if(error) {
+        console.error('Error fetching companion:', error);
+        throw new Error(error.message);
+    }
 
-    return data[0];
+    if(!data) {
+        throw new Error('Companion not found');
+    }
+
+    return data;
 }
 
 export const addToSessionHistory = async (companionId: string) => {

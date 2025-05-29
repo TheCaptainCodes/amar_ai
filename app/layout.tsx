@@ -11,7 +11,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Converso",
+  title: "Amar AI | AI Teaching Platform",
   description: "Real-time AI Teaching Platform",
 };
 
@@ -22,11 +22,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bricolage.variable} antialiased`}>
+      <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo_icons/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo_icons/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/logo_icons/favicon-16x16.png" />
+        <link rel="manifest" href="/logo_icons/site.webmanifest" />
+        <link rel="shortcut icon" href="/logo_icons/favicon.ico" />
+      </head>
+      <body className={`${bricolage.variable} antialiased flex flex-col min-h-screen`}>
         <NextTopLoader showSpinner={false} />
         <ClerkProvider appearance={{ variables: { colorPrimary: '#fe5933' }} }>
           <Navbar />
-          {children}
+          <div className="flex flex-grow items-center justify-center w-full">
+            {children}
+          </div>
         </ClerkProvider>
       </body>
     </html>

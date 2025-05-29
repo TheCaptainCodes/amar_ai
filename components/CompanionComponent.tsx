@@ -47,11 +47,13 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
     }, [isSpeaking, lottieRef])
 
     useEffect(() => {
-        const onCallStart = () => setCallStatus(CallStatus.ACTIVE);
+        const onCallStart = async () => {
+            setCallStatus(CallStatus.ACTIVE);
+            await addToSessionHistory(companionId);
+        };
 
         const onCallEnd = () => {
             setCallStatus(CallStatus.FINISHED);
-            addToSessionHistory(companionId)
         }
 
         const onMessage = (message: Message) => {
@@ -90,6 +92,7 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
     }
 
     const handleCall = async () => {
+        try {
         setCallStatus(CallStatus.CONNECTING)
 
         const assistantOverrides = {
@@ -99,12 +102,22 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
         }
 
         // @ts-expect-error
-        vapi.start(configureAssistant(voice, style), assistantOverrides)
+            await vapi.start(configureAssistant(voice, style), assistantOverrides)
+        } catch (error) {
+            console.error('Error starting session:', error);
+            setCallStatus(CallStatus.INACTIVE);
+        }
     }
 
-    const handleDisconnect = () => {
-        setCallStatus(CallStatus.FINISHED)
-        vapi.stop()
+    const handleDisconnect = async () => {
+        try {
+            setCallStatus(CallStatus.FINISHED);
+            await vapi.stop();
+        } catch (error) {
+            console.error('Error ending session:', error);
+            // Even if there's an error, we want to mark the session as finished
+            setCallStatus(CallStatus.FINISHED);
+        }
     }
 
     return (
@@ -176,10 +189,10 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
                             'rounded-lg py-2 transition-colors w-full text-white',
                              callStatus === CallStatus.ACTIVE ? 'bg-red-700' : 'bg-primary',
                              callStatus === CallStatus.CONNECTING && 'animate-pulse',
-                            callStatus === CallStatus.INACTIVE || callStatus === CallStatus.FINISHED ? 'cursor-pointer' : 'cursor-not-allowed opacity-70'
+                            callStatus === CallStatus.CONNECTING ? 'cursor-not-allowed opacity-70' : 'cursor-pointer'
                         )}
                         onClick={callStatus === CallStatus.ACTIVE ? handleDisconnect : handleCall}
-                        disabled={callStatus === CallStatus.ACTIVE || callStatus === CallStatus.CONNECTING}
+                        disabled={callStatus === CallStatus.CONNECTING}
                      >
                          {callStatus === CallStatus.ACTIVE
                          ? "End Session"

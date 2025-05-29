@@ -7,9 +7,7 @@ const Navbar = () => {
         <nav className="navbar">
             <Link href="/">
                 <div className="flex items-center gap-2.5 cursor-pointer">
-                    <h1 className="text-2xl font-extrabold text-black">
-                        Amar AI
-                    </h1>
+                    <img src="/logo_icons/text_logo.png" alt="Amar AI Logo" width={100} height={30} />
                 </div>
             </Link>
             <div className="flex items-center gap-8">

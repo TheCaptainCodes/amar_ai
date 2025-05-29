@@ -257,6 +257,11 @@ body {
   .example-question-button {
     @apply text-left p-3 rounded-lg bg-white border border-gray-200 hover:border-gray-300 transition text-gray-700 hover:text-gray-900;
   }
+
+  /* Custom styles for the sign-in page main element */
+  .signin-main {
+    @apply p-0 m-0 h-screen flex items-center justify-center w-full;
+  }
 }
 
 @layer utilities {

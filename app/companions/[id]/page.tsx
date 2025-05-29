@@ -14,7 +14,11 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
     const companion = await getCompanion(id);
     const user = await currentUser();
 
-    const { name, subject, title, topic, duration, notes_url } = companion;
+    console.log('Companion data:', companion);
+
+    const { name, subject, title, topic, duration, notes_url, voice, style } = companion;
+
+    console.log('Voice and style:', { voice, style });
 
     if(!user) redirect('/sign-in');
     if(!name) redirect('/companions')
@@ -50,6 +54,8 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
                 userName={user.firstName!}
                 userImage={user.imageUrl!}
                 notes_url={notes_url}
+                voice={voice}
+                style={style}
             />
         </main>
     )
