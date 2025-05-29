@@ -1,145 +1,59 @@
+// This is a comment to trigger re-processing
 import { useState, useEffect } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 const VoiceInput = ({ onTranscript, setInput }) => {
-  const [isListening, setIsListening] = useState(false);
-  const [recognition, setRecognition] = useState(null);
+  const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition({
+    continuous: true,
+    // interimResults is true by default in useSpeechRecognition
+  });
+
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      console.log('SpeechRecognition available:', !!SpeechRecognition);
-      
-      if (SpeechRecognition) {
-        try {
-          const recognition = new SpeechRecognition();
-          recognition.continuous = true; // Changed to true to keep listening
-          recognition.interimResults = true;
-          recognition.lang = 'en-US';
-          recognition.maxAlternatives = 1;
-
-          let finalTranscriptText = '';
-
-          recognition.onstart = () => {
-            console.log('Speech recognition started');
-            setIsListening(true);
-            setError(null);
-            finalTranscriptText = '';
-          };
-
-          recognition.onend = () => {
-            console.log('Speech recognition ended');
-            setIsListening(false);
-            // Auto-submit the final transcript when voice input ends
-            if (finalTranscriptText.trim()) {
-              console.log('Final transcript:', finalTranscriptText);
-              onTranscript(finalTranscriptText);
-              setInput(''); // Clear input after submission
-            }
-          };
-
-          recognition.onresult = (event) => {
-            console.log('Speech recognition result:', event.results);
-            let interimTranscript = '';
-            let finalTranscript = '';
-
-            for (let i = event.resultIndex; i < event.results.length; i++) {
-              const transcript = event.results[i][0].transcript;
-              if (event.results[i].isFinal) {
-                finalTranscript += transcript;
-              } else {
-                interimTranscript += transcript;
-              }
-            }
-
-            console.log('Interim transcript:', interimTranscript);
-            console.log('Final transcript:', finalTranscript);
-
-            // Update input with interim results
-            if (interimTranscript) {
-              setInput(interimTranscript);
-            }
-            
-            if (finalTranscript) {
-              finalTranscriptText = finalTranscript;
-              setInput(finalTranscript);
-            }
-          };
-
-          recognition.onerror = (event) => {
-            console.error('Speech recognition error:', event.error);
-            setError(event.error);
-            setIsListening(false);
-            
-            // Handle specific errors
-            switch (event.error) {
-              case 'not-allowed':
-                setError('Microphone access denied. Please allow microphone access in your browser settings.');
-                break;
-              case 'no-speech':
-                setError('No speech detected. Please try speaking again.');
-                break;
-              case 'audio-capture':
-                setError('No microphone found. Please check your microphone connection.');
-                break;
-              default:
-                setError(`Error: ${event.error}`);
-            }
-          };
-
-          recognition.onaudiostart = () => {
-            console.log('Audio capturing started');
-          };
-
-          recognition.onsoundstart = () => {
-            console.log('Sound detected');
-          };
-
-          recognition.onspeechstart = () => {
-            console.log('Speech detected');
-          };
-
-          setRecognition(recognition);
-        } catch (err) {
-          console.error('Error initializing speech recognition:', err);
-          setError('Failed to initialize speech recognition');
-        }
-      } else {
-        setError('Speech recognition is not supported in your browser');
-      }
+    // Check browser support on mount
+    if (!browserSupportsSpeechRecognition) {
+      setError('Speech recognition is not supported in your browser');
+    } else {
+      setError(null);
     }
-  }, [onTranscript, setInput]);
+  }, [browserSupportsSpeechRecognition]);
+
+  useEffect(() => {
+    // Update input with the transcript as it changes
+    setInput(transcript);
+  }, [transcript, setInput]);
+
 
   const toggleListening = () => {
-    console.log('Toggle listening called, current state:', isListening);
-    if (!recognition) {
-      console.error('Speech recognition not initialized');
-      setError('Speech recognition not initialized');
+    if (!browserSupportsSpeechRecognition) {
+      setError('Speech recognition is not supported in your browser');
       return;
     }
 
-    if (isListening) {
-      console.log('Stopping recognition');
-      try {
-        recognition.stop();
-      } catch (err) {
-        console.error('Error stopping recognition:', err);
+    if (listening) {
+      // When stopping, we consider the current transcript as final
+      SpeechRecognition.stopListening();
+      if (transcript.trim()) {
+        console.log('Submitting transcript:', transcript);
+        onTranscript(transcript);
+        setInput(''); // Clear input after submission
+        resetTranscript(); // Reset the library's transcript state
       }
     } else {
-      try {
-        console.log('Starting recognition');
-        recognition.start();
-      } catch (error) {
-        console.error('Error starting speech recognition:', error);
-        setIsListening(false);
-        setError('Failed to start speech recognition');
-      }
+      setError(null); // Clear previous errors on start
+      SpeechRecognition.startListening();
     }
   };
 
-  if (!recognition) {
-    console.log('Speech recognition not available');
-    return null;
+  if (!browserSupportsSpeechRecognition) {
+    return (
+      <div className="relative">
+        <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-red-100 text-red-700 px-4 py-2 rounded-lg text-sm whitespace-nowrap">
+          {error}
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -147,11 +61,11 @@ const VoiceInput = ({ onTranscript, setInput }) => {
       <button
         onClick={toggleListening}
         className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full transition-all duration-200 ${
-          isListening 
+          listening 
             ? 'bg-red-500 text-white animate-pulse' 
             : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
         }`}
-        aria-label={isListening ? 'Stop recording' : 'Start recording'}
+        aria-label={listening ? 'Stop recording' : 'Start recording'}
         type="button"
       >
         <svg
