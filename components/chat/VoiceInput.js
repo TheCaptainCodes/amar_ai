@@ -4,7 +4,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 
 const VoiceInput = ({ onTranscript, setInput }) => {
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition({
-    continuous: true,
+    continuous: false,
     // interimResults is true by default in useSpeechRecognition
   });
 

@@ -4,6 +4,7 @@ import Chat from "@/components/chat/chat";
 import ExampleQuestions from "@/components/chat/example-questions";
 import { useState, useRef, useEffect, ForwardedRef } from "react";
 import React from "react";
+import VoiceInput from "@/components/chat/VoiceInput";
 
 interface CompactChatInputProps {
   onSend: (msg: string) => void;
@@ -18,9 +19,26 @@ const CompactChatInput = React.forwardRef(function CompactChatInput({ onSend, lo
     onSend(input);
     setInput("");
   };
+
+  // Function to handle transcript from VoiceInput and update local input state
+  const handleTranscript = (transcript: string) => {
+    setInput(transcript);
+    // Do NOT automatically send here, let the user manually send from the text input
+  };
+
+  // Function to handle sending the transcript when voice input ends
+  const handleVoiceSend = (transcript: string) => {
+    console.log('handleVoiceSend called with transcript:', transcript);
+    if (transcript.trim()) {
+      console.log('Transcript is not empty, calling onSend.');
+      onSend(transcript);
+      setInput(''); // Clear input after submission
+    }
+  };
+
   return (
     <form onSubmit={handleSend} className="flex items-center gap-2 w-full max-w-2xl mx-auto h-full">
-      <div className="flex flex-1 items-center bg-gray-50 border border-gray-200 rounded-full shadow-sm px-4 py-2 sm:px-6 sm:py-3 focus-within:ring-2 focus-within:ring-gray-300 transition">
+      <div className="flex flex-1 items-center bg-gray-50 border border-gray-200 rounded-full shadow-sm px-4 py-2 sm:px-6 sm:py-3 focus-within:ring-2 focus-within:ring-gray-300 transition mr-2">
         <input
           ref={inputRef}
           type="text"
@@ -47,6 +65,7 @@ const CompactChatInput = React.forwardRef(function CompactChatInput({ onSend, lo
           </svg>
         </button>
       </div>
+      <VoiceInput onTranscript={handleVoiceSend} setInput={setInput} />
     </form>
   );
 });
