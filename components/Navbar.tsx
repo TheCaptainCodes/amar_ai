@@ -5,10 +5,11 @@ import { SignInButton, SignedIn, SignedOut, UserButton, ClerkLoaded, ClerkLoadin
 import NavItems from "@/components/NavItems";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from '@/hooks/useLanguage';
+import { translations } from '@/constants/translations';
 import { useState, useEffect } from 'react';
 
 const Navbar = () => {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     useEffect(() => {
@@ -25,6 +26,11 @@ const Navbar = () => {
         // Clean up event listener on unmount
         return () => window.removeEventListener('resize', checkScreenSize);
     }, []); // Empty dependency array means this runs once on mount and cleans up on unmount
+
+    // Effect to update document title when language changes
+    useEffect(() => {
+        document.title = translations[language]?.common?.title || 'Amar AI | Personalized AI Tutoring Platform';
+    }, [language]);
 
     return (
         <nav className="navbar">
