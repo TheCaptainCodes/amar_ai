@@ -11,6 +11,7 @@ import { subjects } from "@/constants";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { formUrlQuery, removeKeysFromUrlQuery } from "@jsmastery/utils";
+import { useLanguage } from '@/hooks/useLanguage';
 
 const SubjectFilter = () => {
     const router = useRouter();
@@ -36,13 +37,15 @@ const SubjectFilter = () => {
         router.push(newUrl, { scroll: false });
     }, [subject]);
 
+    const { t } = useLanguage();
+
     return (
         <Select onValueChange={setSubject} value={subject}>
             <SelectTrigger className="input capitalize">
-                <SelectValue placeholder="Subject" />
+                <SelectValue placeholder={t('subject')} />
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value="all">All subjects</SelectItem>
+                <SelectItem value="all">{t('allSubjects')}</SelectItem>
                 {subjects.map((subject) => (
                     <SelectItem key={subject} value={subject} className="capitalize">
                         {subject}

@@ -1,3 +1,5 @@
+'use server';
+
 import {
   Accordion,
   AccordionContent,
@@ -13,6 +15,7 @@ import {
 } from "@/lib/actions/companion.actions";
 import Image from "next/image";
 import CompanionsList from "@/components/CompanionsList";
+import ProgressPageContent from "@/components/ProgressPageContent";
 
 const Profile = async () => {
   const user = await currentUser();
@@ -23,80 +26,47 @@ const Profile = async () => {
   const sessionHistory = await getUserSessions(user.id);
   const bookmarkedCompanions = await getBookmarkedCompanions(user.id);
 
+  // Serialize user object, safely accessing properties
+  const userData = {
+    id: user.id,
+    imageUrl: user.imageUrl,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    emailAddress: (user.emailAddresses && user.emailAddresses.length > 0) ? user.emailAddresses[0].emailAddress : undefined,
+    // Include other simple user properties if needed in the client component
+  };
+
+  // Serialize companion/session arrays, safely handling potential null/undefined items
+  const serializeArray = (arr: any[] | null | undefined) => {
+    if (!arr) return [];
+    return arr.map(item => {
+      if (!item) return null; // Handle potential null or undefined items in the array
+      return {
+        $id: item.$id,
+        id: item.$id, // Assuming id is the same as $id
+        subject: item.subject,
+        name: item.name,
+        topic: item.topic,
+        duration: item.duration,
+        // Include other simple properties used in the client component
+        // e.g., bookmarked: item.bookmarked,
+      };
+    }).filter(item => item !== null); // Filter out any null items
+  };
+
+  // Ensure arrays passed to serializeArray are never null or undefined
+  const serializedCompanions = serializeArray(companions || []);
+  const serializedSessionHistory = serializeArray(sessionHistory || []);
+  const serializedBookmarkedCompanions = serializeArray(bookmarkedCompanions || []);
+
   return (
-    <main className="">
-      <section className="flex justify-between gap-4 max-sm:flex-col items-center">
-        <div className="flex gap-4 items-center">
-          <Image
-            src={user.imageUrl}
-            alt={user.firstName!}
-            width={110}
-            height={110}
-          />
-          <div className="flex flex-col gap-2">
-            <h1 className="font-bold text-2xl">
-              {user.firstName} {user.lastName}
-            </h1>
-            <p className="text-sm text-muted-foreground">
-              {user.emailAddresses[0].emailAddress}
-            </p>
-          </div>
-        </div>
-        <div className="flex gap-4">
-          <div className="border border-black rouded-lg p-3 gap-2 flex flex-col h-fit">
-            <div className="flex gap-2 items-center">
-              <Image
-                src="/icons/check.svg"
-                alt="checkmark"
-                width={22}
-                height={22}
-              />
-              <p className="text-2xl font-bold">{sessionHistory.length}</p>
-            </div>
-            <div>Lessons completed</div>
-          </div>
-          <div className="border border-black rouded-lg p-3 gap-2 flex flex-col h-fit">
-            <div className="flex gap-2 items-center">
-              <Image src="/icons/cap.svg" alt="cap" width={22} height={22} />
-              <p className="text-2xl font-bold">{companions.length}</p>
-            </div>
-            <div>Companions created</div>
-          </div>
-        </div>
-      </section>
-      <Accordion type="multiple">
-        <AccordionItem value="bookmarks">
-          <AccordionTrigger className="text-2xl font-bold">
-            Bookmarked Companions {`(${bookmarkedCompanions.length})`}
-          </AccordionTrigger>
-          <AccordionContent>
-            <CompanionsList
-              companions={bookmarkedCompanions}
-              title="Bookmarked Companions"
-            />
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="recent">
-          <AccordionTrigger className="text-2xl font-bold">
-            Recent Sessions
-          </AccordionTrigger>
-          <AccordionContent>
-            <CompanionsList
-              title="Recent Sessions"
-              companions={sessionHistory}
-            />
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="companions">
-          <AccordionTrigger className="text-2xl font-bold">
-            My Companions {`(${companions.length})`}
-          </AccordionTrigger>
-          <AccordionContent>
-            <CompanionsList title="My Companions" companions={companions} />
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-    </main>
+    <ProgressPageContent
+      user={userData}
+      companions={serializedCompanions}
+      sessionHistory={serializedSessionHistory}
+      bookmarkedCompanions={serializedBookmarkedCompanions}
+    />
   );
 };
+
 export default Profile;

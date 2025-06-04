@@ -27,6 +27,7 @@ import {createCompanion} from "@/lib/actions/companion.actions";
 import { useRouter } from "next/navigation";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
+import { useLanguage } from '@/hooks/useLanguage';
 
 const formSchema = z.object({
     name: z.string().min(1, { message: 'Companion is required.'}),
@@ -44,6 +45,7 @@ type FormValues = z.infer<typeof formSchema>;
 const CompanionForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
+    const { t } = useLanguage();
     
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
@@ -78,7 +80,7 @@ const CompanionForm = () => {
 
     return (
         <div className="w-full max-w-xl bg-white p-8 rounded-lg shadow-md mx-auto md:mx-0">
-            <h1 className="text-2xl font-bold text-left mb-6">Companion Builder</h1>
+            <h1 className="text-2xl font-bold text-left mb-6">{t('companionBuilder')}</h1>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                     <FormField
@@ -86,10 +88,10 @@ const CompanionForm = () => {
                         name="name"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Companion name</FormLabel>
+                                <FormLabel>{t('companionName')}</FormLabel>
                                 <FormControl>
                                     <Input
-                                        placeholder="Enter the companion name"
+                                        placeholder={t('enterCompanionName')}
                                         {...field}
                                         className="input"
                                     />
@@ -104,11 +106,11 @@ const CompanionForm = () => {
                         name="subject"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Subject</FormLabel>
+                                <FormLabel>{t('subject')}</FormLabel>
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
                                         <SelectTrigger>
-                                            <SelectValue placeholder="Select a subject" />
+                                            <SelectValue placeholder={t('selectASubject')} />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
@@ -129,10 +131,10 @@ const CompanionForm = () => {
                         name="topic"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Topic</FormLabel>
+                                <FormLabel>{t('topic')}</FormLabel>
                                 <FormControl>
                                     <Input
-                                        placeholder="Enter the topic"
+                                        placeholder={t('enterTopic')}
                                         {...field}
                                         className="input"
                                     />
@@ -147,16 +149,16 @@ const CompanionForm = () => {
                         name="voice"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Voice</FormLabel>
+                                <FormLabel>{t('voice')}</FormLabel>
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
                                         <SelectTrigger>
-                                            <SelectValue placeholder="Select a voice" />
+                                            <SelectValue placeholder={t('selectAVoice')} />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
-                                        <SelectItem value="male">Male</SelectItem>
-                                        <SelectItem value="female">Female</SelectItem>
+                                        <SelectItem value="male">{t('male')}</SelectItem>
+                                        <SelectItem value="female">{t('female')}</SelectItem>
                                     </SelectContent>
                                 </Select>
                                 <FormMessage />
@@ -169,16 +171,16 @@ const CompanionForm = () => {
                         name="style"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Style</FormLabel>
+                                <FormLabel>{t('personality')}</FormLabel>
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
                                         <SelectTrigger>
-                                            <SelectValue placeholder="Select a style" />
+                                            <SelectValue placeholder={t('selectAStyle')} />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
-                                        <SelectItem value="professional">Professional</SelectItem>
-                                        <SelectItem value="casual">Casual</SelectItem>
+                                        <SelectItem value="professional">{t('professional')}</SelectItem>
+                                        <SelectItem value="casual">{t('casual')}</SelectItem>
                                     </SelectContent>
                                 </Select>
                                 <FormMessage />
@@ -191,11 +193,11 @@ const CompanionForm = () => {
                         name="duration"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Duration (minutes)</FormLabel>
+                                <FormLabel>{t('duration')} ({t('minutes')})</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="number"
-                                        placeholder="Enter the duration"
+                                        placeholder={t('enterDuration')}
                                         {...field}
                                         className="input"
                                     />
@@ -218,33 +220,33 @@ const CompanionForm = () => {
                                 </FormControl>
                                 <div className="space-y-1 leading-none">
                                     <FormLabel>
-                                        Generate Study Notes
+                                        {t('generateStudyNotes')}
                                     </FormLabel>
                                     <FormDescription>
-                                        Create comprehensive study notes for this topic
+                                        {t('generateStudyNotesDesc')}
                                     </FormDescription>
                                 </div>
                             </FormItem>
                         )}
                     />
 
-                    {form.watch("generate_notes") && (
+                    {form.watch('generate_notes') && (
                         <FormField
                             control={form.control as any}
                             name="note_style"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Note Style</FormLabel>
+                                    <FormLabel>{t('noteStyle')}</FormLabel>
                                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                                         <FormControl>
                                             <SelectTrigger>
-                                                <SelectValue placeholder="Select a note style" />
+                                                <SelectValue placeholder={t('selectANoteStyle')} />
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent>
-                                            <SelectItem value="detailed">Detailed</SelectItem>
-                                            <SelectItem value="concise">Concise</SelectItem>
-                                            <SelectItem value="visual">Visual Focus</SelectItem>
+                                            <SelectItem value="detailed">{t('detailed')}</SelectItem>
+                                            <SelectItem value="concise">{t('concise')}</SelectItem>
+                                            <SelectItem value="visual">{t('visualFocus')}</SelectItem>
                                         </SelectContent>
                                     </Select>
                                     <FormMessage />
@@ -253,7 +255,7 @@ const CompanionForm = () => {
                         />
                     )}
 
-                    <Button 
+                    <Button
                         type="submit" 
                         className="w-full btn-primary"
                         disabled={isLoading}
@@ -280,10 +282,10 @@ const CompanionForm = () => {
                                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                                     ></path>
                                 </svg>
-                                Building your companion...
+                                {t('buildingCompanion')}
                             </>
                         ) : (
-                            'Build your companion'
+                            t('createCompanion')
                         )}
                     </Button>
                 </form>

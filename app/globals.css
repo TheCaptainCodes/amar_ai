@@ -273,3 +273,54 @@ body {
     scrollbar-width: none;
   }
 }
+
+@font-face {
+  font-family: 'Baloo Da 2';
+  src: url('/bangla_font/Baloo_Da_2/BalooDa2-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 800; /* Variable font weights */
+  font-display: swap;
+}
+
+/* Base font for all languages */
+body {
+  font-family: var(--font-bricolage);
+}
+
+/* Bangla font overrides - using higher specificity */
+html[lang="bn"] body,
+body.lang-bn {
+  font-family: 'Baloo Da 2', sans-serif !important;
+  font-size: 1.2rem; /* Adjust as needed */
+}
+
+html[lang="bn"] body h1,
+body.lang-bn h1 {
+  font-family: 'Baloo Da 2', sans-serif !important;
+}
+
+html[lang="bn"] body h2,
+html[lang="bn"] body h3,
+html[lang="bn"] body h4,
+html[lang="bn"] body h5,
+html[lang="bn"] body h6,
+html[lang="bn"] body p,
+html[lang="bn"] body span,
+html[lang="bn"] body div,
+html[lang="bn"] body button,
+html[lang="bn"] body a,
+html[lang="bn"] body input,
+html[lang="bn"] body textarea,
+body.lang-bn h2,
+body.lang-bn h3,
+body.lang-bn h4,
+body.lang-bn h5,
+body.lang-bn h6,
+body.lang-bn p,
+body.lang-bn span,
+body.lang-bn div,
+body.lang-bn button,
+body.lang-bn a,
+body.lang-bn input,
+body.lang-bn textarea {
+  font-family: 'Baloo Da 2', sans-serif !important;
+}

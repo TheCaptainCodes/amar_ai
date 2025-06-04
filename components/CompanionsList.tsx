@@ -1,3 +1,4 @@
+'use client';
 
 import {
     Table,
@@ -11,6 +12,7 @@ import {
 import {cn, getSubjectColor} from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from '@/hooks/useLanguage';
 
 interface CompanionsListProps {
     title: string;
@@ -19,6 +21,8 @@ interface CompanionsListProps {
 }
 
 const CompanionsList = ({ title, companions, classNames }: CompanionsListProps) => {
+    const { t } = useLanguage();
+
     return (
         <article className={cn('companion-list', classNames)}>
             <h2 className="font-bold text-3xl">{title}</h2>
@@ -26,9 +30,9 @@ const CompanionsList = ({ title, companions, classNames }: CompanionsListProps) 
             <Table>
                 <TableHeader>
                     <TableRow>
-                        <TableHead className="text-lg w-2/3">Lessons</TableHead>
-                        <TableHead className="text-lg">Subject</TableHead>
-                        <TableHead className="text-lg text-right">Duration</TableHead>
+                        <TableHead className="text-lg w-2/3">{t('lessons')}</TableHead>
+                        <TableHead className="text-lg">{t('subject')}</TableHead>
+                        <TableHead className="text-lg text-right">{t('duration')}</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>

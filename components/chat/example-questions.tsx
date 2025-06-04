@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const examples = [
   'What is the formula for solving a quadratic equation?',
@@ -17,9 +18,11 @@ const mobileExamples = [
 ];
 
 export default function ExampleQuestions({ onSelect }: { onSelect: (q: string) => void }) {
+  const { t } = useLanguage();
+
   return (
     <div className="mt-0 flex flex-col items-center space-y-2">
-      <div className="text-gray-900 mb-2 font-semibold">Try asking:</div>
+      <div className="text-gray-900 mb-2 font-semibold">{t('tryAsking')}</div>
       <div className="flex flex-wrap gap-2 justify-center">
         {examples.map((q) => (
           <button

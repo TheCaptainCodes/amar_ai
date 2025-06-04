@@ -5,6 +5,8 @@ import ExampleQuestions from "@/components/chat/example-questions";
 import { useState, useRef, useEffect, ForwardedRef } from "react";
 import React from "react";
 import VoiceInput from "@/components/chat/VoiceInput";
+import { useLanguage } from '@/hooks/useLanguage';
+import { translations } from '@/constants/translations';
 
 interface CompactChatInputProps {
   onSend: (msg: string) => void;
@@ -36,6 +38,8 @@ const CompactChatInput = React.forwardRef(function CompactChatInput({ onSend, lo
     }
   };
 
+  const { t } = useLanguage();
+
   return (
     <form onSubmit={handleSend} className="flex items-center gap-2 w-full max-w-2xl mx-auto h-full">
       <div className="flex flex-1 items-center bg-gray-50 border border-gray-200 rounded-full shadow-sm px-4 py-2 sm:px-6 sm:py-3 focus-within:ring-2 focus-within:ring-gray-300 transition mr-2">
@@ -43,7 +47,7 @@ const CompactChatInput = React.forwardRef(function CompactChatInput({ onSend, lo
           ref={inputRef}
           type="text"
           className="flex-1 bg-transparent outline-none border-none text-gray-900 placeholder-gray-400 text-base sm:text-lg"
-          placeholder="Ask a question about your studies…"
+          placeholder={t('askAQuestion')}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           disabled={loading}
@@ -77,6 +81,7 @@ export default function Home() {
   const [expanded, setExpanded] = useState(false);
   const chatboxRef = useRef<HTMLDivElement>(null);
   const compactInputRef = useRef<HTMLInputElement>(null);
+  const { t } = useLanguage();
 
   // Placeholder for sending message to API
   const handleSend = async (msg: string) => {
@@ -94,12 +99,12 @@ export default function Home() {
       const data = await res.json();
       setMessages((prev) => [
         ...prev,
-        { role: 'assistant', content: data.reply || 'Sorry, I could not generate a response.' },
+        { role: 'assistant', content: data.reply || t('errorGeneratingResponse') },
       ]);
     } catch (e: any) {
       setMessages((prev) => [
         ...prev,
-        { role: 'assistant', content: 'Sorry, there was an error contacting Amar AI.' },
+        { role: 'assistant', content: t('errorContactingAI') },
       ]);
     }
     setLoading(false);
@@ -125,9 +130,11 @@ export default function Home() {
     <div className="flex flex-col w-full ">
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 pt-0">
         <h1 className="text-5xl md:text-5xl font-extrabold text-center mb-0 text-gray-900 mt-5">
-          Amar AI
+          {t('amarAIHeadline')}
         </h1>
-        {messages.length === 0 && <ExampleQuestions onSelect={handleSend} />}
+        {messages.length === 0 && <>
+          <ExampleQuestions onSelect={handleSend} />
+        </>}
         <div className="w-full flex justify-center" ref={chatboxRef}>
           <div
             className={`w-full max-w-7xl ${messages.length === 0 ? 'h-[64px] mt-0' : 'h-[90vh] mt-8'}`}

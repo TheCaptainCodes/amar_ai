@@ -4,6 +4,8 @@ import {redirect} from "next/navigation";
 import {getSubjectColor} from "@/lib/utils";
 import Image from "next/image";
 import CompanionComponent from "@/components/CompanionComponent";
+import { translations } from '@/constants/translations';
+import { cookies } from 'next/headers';
 
 interface CompanionSessionPageProps {
     params: Promise<{ id: string}>;
@@ -22,6 +24,12 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
 
     if(!user) redirect('/sign-in');
     if(!name) redirect('/companions')
+
+    const cookieStore = cookies();
+    const language = cookieStore.get('language')?.value || 'en';
+    const t = (key: keyof typeof translations.en) => {
+      return translations[language as keyof typeof translations][key];
+    };
 
     return (
         <main>
@@ -44,7 +52,7 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
                     </div>
                 </div>
                 <div className="items-start text-2xl max-md:hidden">
-                    {duration} minutes
+                    {duration} {t('minutes')}
                 </div>
             </article>
 

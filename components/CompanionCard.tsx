@@ -4,6 +4,7 @@ import { addBookmark } from "@/lib/actions/companion.actions";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLanguage } from '@/hooks/useLanguage';
 
 interface CompanionCardProps {
   id: string;
@@ -32,6 +33,8 @@ const CompanionCard = ({
       await addBookmark(id, pathname);
     }
   };
+  const { t } = useLanguage();
+
   return (
     <article className="companion-card" style={{ backgroundColor: color }}>
       <div className="flex justify-between items-center">
@@ -57,12 +60,12 @@ const CompanionCard = ({
           width={13.5}
           height={13.5}
         />
-        <p className="text-sm">{duration} minutes</p>
+        <p className="text-sm">{duration} {t('minutes')}</p>
       </div>
 
       <Link href={`/companions/${id}`} className="w-full">
         <button className="btn-primary w-full justify-center">
-          Launch Lesson
+          {t('launchLesson')}
         </button>
       </Link>
     </article>
