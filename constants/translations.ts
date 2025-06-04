@@ -21,8 +21,31 @@ export const translations = {
         allSubjects: "All subjects",
         lessons: "Lessons",
         subject: "Subject",
+        style: "Style",
         duration: "Duration",
+        minutes: "minutes",
         launchLesson: "Launch Lesson",
+        other: "Other",
+        selectASubject: "Select a subject",
+        enterDuration: "Enter class duration in minutes",
+        // Subject names
+        Physics: "Physics",
+        Chemistry: "Chemistry",
+        Biology: "Biology",
+        Mathematics: "Mathematics",
+        History: "History",
+        Geography: "Geography",
+        Literature: "Literature",
+        "Computer Science": "Computer Science",
+        Economics: "Economics",
+        Art: "Art",
+        Other: "Other",
+        // Voice options
+        male: "Male",
+        female: "Female",
+        // Style options
+        professional: "Professional",
+        casual: "Casual",
         
         // Progress page
         lessonsCompleted: "Lessons completed",
@@ -42,7 +65,16 @@ export const translations = {
         personality: "Personality",
         enterPersonality: "Enter personality",
         examplePersonality: "Example: Humorous, sarcastic, wise, etc.",
+        selectAPersonality: "Select a personality",
         createCompanion: "Create Companion",
+        // Notes options
+        generateStudyNotes: "Generate study notes",
+        generateStudyNotesDesc: "Automatically generate study notes after each session.",
+        noteStyle: "Note Style",
+        selectANoteStyle: "Select a note style",
+        detailed: "Detailed",
+        concise: "Concise",
+        visualFocus: "Visual Focus (Charts, Diagrams, etc.)",
 
         // Common
         common: {
@@ -106,8 +138,31 @@ export const translations = {
         allSubjects: "সব বিষয়",
         lessons: "পাঠ",
         subject: "বিষয়",
+        style: "স্টাইল",
         duration: "সময়কাল",
+        minutes: "মিনিট",
         launchLesson: "পাঠ শুরু করুন",
+        other: "অন্যান্য",
+        selectASubject: "বিষয় নির্বাচন করুন",
+        enterDuration: "ক্লাসের সময়কাল মিনিটে লিখুন ",
+        // Subject names
+        Physics: "পদার্থবিজ্ঞান",
+        Chemistry: "রসায়ন",
+        Biology: "জীববিজ্ঞান",
+        Mathematics: "গণিত",
+        History: "ইতিহাস",
+        Geography: "ভূগোল",
+        Literature: "সাহিত্য",
+        "Computer Science": "কম্পিউটার বিজ্ঞান",
+        Economics: "অর্থনীতি",
+        Art: "শিল্পকলা",
+        Other: "অন্যান্য",
+        // Voice options
+        male: "পুরুষ",
+        female: "মহিলা",
+        // Style options
+        professional: "পেশাদার",
+        casual: "সাধারণ",
         
         // Progress page
         lessonsCompleted: "সম্পন্ন পাঠ",
@@ -120,14 +175,23 @@ export const translations = {
         companionBuilder: "কম্প্যানিয়ন বিল্ডার",
         companionName: "কম্প্যানিয়নের নাম",
         enterCompanionName: "কম্প্যানিয়নের নাম লিখুন",
-        topic: "বিষয়",
-        enterTopic: "বিষয় লিখুন",
+        topic: "টপিক",
+        enterTopic: "টপিক লিখুন",
         voice: "ভয়েস",
-        selectAVoice: "একটি ভয়েস নির্বাচন করুন",
+        selectAVoice: "ভয়েস নির্বাচন করুন",
         personality: "ব্যক্তিত্ব",
         enterPersonality: "ব্যক্তিত্ব লিখুন",
         examplePersonality: "উদাহরণ: হাস্যরসাত্মক, ব্যাঙ্গাত্মক, জ্ঞানী ইত্যাদি।",
+        selectAPersonality: "ব্যক্তিত্ব নির্বাচন করুন",
         createCompanion: "কম্প্যানিয়ন তৈরি করুন",
+        // Notes options
+        generateStudyNotes: "স্টাডি নোট তৈরি করুন",
+        generateStudyNotesDesc: "প্রতিটি সেশনের পর স্বয়ংক্রিয়ভাবে স্টাডি নোট তৈরি করুন।",
+        noteStyle: "নোটের স্টাইল",
+        selectANoteStyle: "নোটের স্টাইল নির্বাচন করুন",
+        detailed: "বিস্তারিত",
+        concise: "সংক্ষিপ্ত",
+        visualFocus: "ভিজ্যুয়াল ফোকাস (চার্ট, ডায়াগ্রাম ইত্যাদি)",
 
         // Common
         common: {

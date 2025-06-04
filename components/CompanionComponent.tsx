@@ -8,6 +8,7 @@ import Lottie, {LottieRefCurrentProps} from "lottie-react";
 import soundwaves from '@/constants/soundwaves.json'
 import {addToSessionHistory} from "@/lib/actions/companion.actions";
 import { Button } from "@/components/ui/button";
+import { subjectBackgrounds } from '@/constants';
 
 enum CallStatus {
     INACTIVE = 'INACTIVE',
@@ -126,9 +127,24 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
             <section className="flex flex-col w-full md:w-1/2 gap-4 p-4 border-r md:pr-4">
 
                 {/* Top Area: Companion Info Box - takes upper vertical space and full width */}
-                <div className="companion-section flex flex-col w-full">
+                <div className="companion-section flex flex-col w-full relative rounded-lg overflow-hidden">
+                    {/* Artistic Background Image */}
+                    <Image
+                      src={subjectBackgrounds[subject] || '/art/default-art.avif'} 
+                      alt={`${subject} background`} // Use a more descriptive alt text
+                      layout="fill"
+                      objectFit="cover"
+                      className="absolute top-0 left-0 w-full h-full z-0"
+                      priority
+                    />
+
+                    {/* Dark Overlay */}
+                    <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-10" />
+
                     {/* Companion Avatar Box - takes full width of its container, fixed height, ensure content fits */}
-                    <div className="companion-avatar relative h-[200px] flex items-center justify-center rounded-lg overflow-hidden w-full" style={{ backgroundColor: getSubjectColor(subject)}}>
+                    <div className="relative z-20 h-[200px] flex items-center justify-center rounded-lg overflow-hidden w-full">
+                        {/* Removed Subject Icon */}
+                        {/*
                         <div
                             className={
                             cn(
@@ -138,8 +154,9 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
                             )
                         }>
                             {/* Make image smaller and centered, remove fill/object-contain from image, rely on parent centering */}
-                            <Image src={`/icons/${subject}.svg`} alt={subject} width={80} height={80} className="" />
-                        </div>
+                            {/* <Image src={`/icons/${subject}.svg`} alt={subject} width={80} height={80} className="" /> */}
+                        {/* </div>
+                        */}
 
                         <div className={cn('absolute inset-0 transition-opacity duration-1000 flex items-center justify-center', callStatus === CallStatus.ACTIVE ? 'opacity-100': 'opacity-0')}>
                             <Lottie
@@ -151,7 +168,8 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
                             />
                         </div>
                     </div>
-                    <p className="font-bold text-center mt-2 text-xl">{name}</p>
+                    {/* Centered Companion Name */}
+                    <p className="font-bold text-center text-2xl absolute top-1/2 left-0 right-0 -translate-y-1/2 z-20 text-white">{name}</p>
                      {/* View Study Notes button visible only on small screens when PDF is not side-by-side */}
                     {!notes_url && (
                         <Button

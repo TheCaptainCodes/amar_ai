@@ -48,7 +48,7 @@ const SubjectFilter = () => {
                 <SelectItem value="all">{t('allSubjects')}</SelectItem>
                 {subjects.map((subject) => (
                     <SelectItem key={subject} value={subject} className="capitalize">
-                        {subject}
+                        {t(subject as any)}
                     </SelectItem>
                 ))}
             </SelectContent>

@@ -116,7 +116,7 @@ const CompanionForm = () => {
                                     <SelectContent>
                                         {subjects.map((subject) => (
                                             <SelectItem key={subject} value={subject}>
-                                                {subject}
+                                                {t(subject as any)}
                                             </SelectItem>
                                         ))}
                                     </SelectContent>
@@ -175,7 +175,7 @@ const CompanionForm = () => {
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
                                         <SelectTrigger>
-                                            <SelectValue placeholder={t('selectAStyle')} />
+                                            <SelectValue placeholder={t('selectAPersonality')} />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
@@ -246,7 +246,6 @@ const CompanionForm = () => {
                                         <SelectContent>
                                             <SelectItem value="detailed">{t('detailed')}</SelectItem>
                                             <SelectItem value="concise">{t('concise')}</SelectItem>
-                                            <SelectItem value="visual">{t('visualFocus')}</SelectItem>
                                         </SelectContent>
                                     </Select>
                                     <FormMessage />

@@ -61,12 +61,12 @@ const CompanionsList = ({ title, companions, classNames }: CompanionsListProps) 
                             </TableCell>
                             <TableCell>
                                 <div className="subject-badge w-fit max-md:hidden">
-                                    {subject}
+                                    {t(subject as any)}
                                 </div>
                                 <div className="flex items-center justify-center rounded-lg w-fit p-2 md:hidden" style={{backgroundColor: getSubjectColor(subject)}}>
                             <Image
                                 src={`/icons/${subject}.svg`}
-                                alt={subject}
+                                alt={t(subject as any)}
                                 width={18}
                                 height={18}
                             />
