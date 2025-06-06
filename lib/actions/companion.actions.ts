@@ -36,7 +36,7 @@ export const createCompanion = async (formData: CreateCompanion) => {
         throw new Error("User not authenticated");
     }
 
-    const supabase = createSupabaseClient();
+    const supabase = await createSupabaseClient();
 
     // Create the companion first
     const { data, error } = await supabase
@@ -283,8 +283,11 @@ export const createCompanion = async (formData: CreateCompanion) => {
             // Generate a URL-safe filename
             const safeFilename = `${formData.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()}-${Date.now()}.pdf`;
 
+            // Get a fresh Supabase client for the storage operations
+            const storageClient = await createSupabaseClient();
+
             // Upload the PDF to Supabase storage
-            const { error: uploadError } = await supabase.storage
+            const { error: uploadError } = await storageClient.storage
                 .from('notes')
                 .upload(safeFilename, pdfBytes, {
                     contentType: 'application/pdf',
@@ -294,18 +297,18 @@ export const createCompanion = async (formData: CreateCompanion) => {
             if (uploadError) throw new Error(uploadError.message);
 
             // Get a signed URL that expires in 1 week
-            const { data, error: urlError } = await supabase.storage
+            const { data: urlData, error: urlError } = await storageClient.storage
                 .from('notes')
                 .createSignedUrl(safeFilename, 60 * 60 * 24 * 7); // 1 week in seconds
 
-            if (urlError || !data?.signedUrl) { // Add check for data existence
+            if (urlError || !urlData?.signedUrl) {
                 throw new Error(urlError?.message || 'Failed to generate signed URL');
             }
 
-            const signedUrl = data.signedUrl;
+            const signedUrl = urlData.signedUrl;
 
-            // Update companion with notes URL
-            const { error: updateError } = await supabase
+            // Update companion with notes URL using the same client
+            const { error: updateError } = await storageClient
                 .from('companions')
                 .update({ notes_url: signedUrl })
                 .eq('id', companion.id);
@@ -320,21 +323,24 @@ export const createCompanion = async (formData: CreateCompanion) => {
     return companion;
 }
 
-export const getAllCompanions = async ({ limit = 10, page = 1, subject, topic }: GetAllCompanions) => {
-    const supabase = createSupabaseClient();
+export const getAllCompanions = async ({ limit, page, subject, topic }: { limit?: number; page?: number; subject?: string; topic?: string }) => {
+    const supabase = await createSupabaseClient();
 
     let query = supabase.from('companions').select();
 
     if(subject && topic) {
         query = query.ilike('subject', `%${subject}%`)
-            .or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`)
+            .or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`);
     } else if(subject) {
-        query = query.ilike('subject', `%${subject}%`)
+        query = query.ilike('subject', `%${subject}%`);
     } else if(topic) {
-        query = query.or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`)
+        query = query.or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`);
     }
 
-    query = query.range((page - 1) * limit, page * limit - 1);
+    // Apply limit and range only if limit is provided
+    if (limit !== undefined && page !== undefined) {
+         query = query.range((page - 1) * limit, page * limit - 1);
+    }
 
     const { data: companions, error } = await query;
 
@@ -344,7 +350,7 @@ export const getAllCompanions = async ({ limit = 10, page = 1, subject, topic }:
 }
 
 export const getCompanion = async (id: string) => {
-    const supabase = createSupabaseClient();
+    const supabase = await createSupabaseClient();
 
     const { data, error } = await supabase
         .from('companions')
@@ -366,12 +372,12 @@ export const getCompanion = async (id: string) => {
 
 export const addToSessionHistory = async (companionId: string) => {
     const { userId } = await auth();
-    const supabase = createSupabaseClient();
+    const supabase = await createSupabaseClient();
     const { data, error } = await supabase.from('session_history')
         .insert({
             companion_id: companionId,
             user_id: userId,
-        })
+        });
 
     if(error) throw new Error(error.message);
 
@@ -379,12 +385,12 @@ export const addToSessionHistory = async (companionId: string) => {
 }
 
 export const getRecentSessions = async (limit = 10) => {
-    const supabase = createSupabaseClient();
+    const supabase = await createSupabaseClient();
     const { data, error } = await supabase
         .from('session_history')
         .select(`companions:companion_id (*)`)
         .order('created_at', { ascending: false })
-        .limit(limit)
+        .limit(limit);
 
     if(error) throw new Error(error.message);
 
@@ -392,13 +398,13 @@ export const getRecentSessions = async (limit = 10) => {
 }
 
 export const getUserSessions = async (userId: string, limit = 10) => {
-    const supabase = createSupabaseClient();
+    const supabase = await createSupabaseClient();
     const { data, error } = await supabase
         .from('session_history')
         .select(`companions:companion_id (*)`)
         .eq('user_id', userId)
         .order('created_at', { ascending: false })
-        .limit(limit)
+        .limit(limit);
 
     if(error) throw new Error(error.message);
 
@@ -406,11 +412,11 @@ export const getUserSessions = async (userId: string, limit = 10) => {
 }
 
 export const getUserCompanions = async (userId: string) => {
-    const supabase = createSupabaseClient();
+    const supabase = await createSupabaseClient();
     const { data, error } = await supabase
         .from('companions')
         .select()
-        .eq('author', userId)
+        .eq('author', userId);
 
     if(error) throw new Error(error.message);
 
@@ -419,54 +425,53 @@ export const getUserCompanions = async (userId: string) => {
 
 // Bookmarks
 export const addBookmark = async (companionId: string, path: string) => {
-  const { userId } = await auth();
-  if (!userId) return;
-  const supabase = createSupabaseClient();
-  const { data, error } = await supabase.from("bookmarks").insert({
-    companion_id: companionId,
-    user_id: userId,
-  });
-  if (error) {
-    throw new Error(error.message);
-  }
-  // Revalidate the path to force a re-render of the page
-
-  revalidatePath(path);
-  return data;
+    const { userId } = await auth();
+    if (!userId) return;
+    const supabase = await createSupabaseClient();
+    const { data, error } = await supabase.from("bookmarks").insert({
+        companion_id: companionId,
+        user_id: userId,
+    });
+    if (error) {
+        throw new Error(error.message);
+    }
+    // Revalidate the path to force a re-render of the page
+    revalidatePath(path);
+    return data;
 };
 
 export const removeBookmark = async (companionId: string, path: string) => {
-  const { userId } = await auth();
-  if (!userId) return;
-  const supabase = createSupabaseClient();
-  const { data, error } = await supabase
-    .from("bookmarks")
-    .delete()
-    .eq("companion_id", companionId)
-    .eq("user_id", userId);
-  if (error) {
-    throw new Error(error.message);
-  }
-  revalidatePath(path);
-  return data;
+    const { userId } = await auth();
+    if (!userId) return;
+    const supabase = await createSupabaseClient();
+    const { data, error } = await supabase
+        .from("bookmarks")
+        .delete()
+        .eq("companion_id", companionId)
+        .eq("user_id", userId);
+    if (error) {
+        throw new Error(error.message);
+    }
+    revalidatePath(path);
+    return data;
 };
 
 // It's almost the same as getUserCompanions, but it's for the bookmarked companions
 export const getBookmarkedCompanions = async (userId: string) => {
-  const supabase = createSupabaseClient();
-  const { data, error } = await supabase
-    .from("bookmarks")
-    .select(`companions:companion_id (*)`) // Notice the (*) to get all the companion data
-    .eq("user_id", userId);
-  if (error) {
-    throw new Error(error.message);
-  }
-  // We don't need the bookmarks data, so we return only the companions
-  return data.map(({ companions }) => companions);
+    const supabase = await createSupabaseClient();
+    const { data, error } = await supabase
+        .from("bookmarks")
+        .select(`companions:companion_id (*)`)
+        .eq("user_id", userId);
+    if (error) {
+        throw new Error(error.message);
+    }
+    // We don't need the bookmarks data, so we return only the companions
+    return data.map(({ companions }) => companions);
 };
 
 export const refreshNotesUrl = async (companionId: string) => {
-    const supabase = createSupabaseClient();
+    const supabase = await createSupabaseClient();
     
     // Get the companion to find the filename
     const { data: companion, error: companionError } = await supabase
@@ -490,7 +495,7 @@ export const refreshNotesUrl = async (companionId: string) => {
         .from('notes')
         .createSignedUrl(filename, 60 * 60 * 24 * 7); // 1 week in seconds
         
-    if (urlError || !data?.signedUrl) { // Add check for data existence
+    if (urlError || !data?.signedUrl) {
         throw new Error(urlError?.message || 'Failed to generate new signed URL');
     }
     

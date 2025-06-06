@@ -42,14 +42,14 @@ export const subjectBackgrounds: { [key: string]: string } = {
     'Physics': '/art/physics.jpg',
     'Chemistry': '/art/chemistry.avif',
     'Biology': '/art/biology.webp',
-    'Mathematics': '/art/math-art.avif',
-    'History': '/art/history-art.avif',
-    'Geography': '/art/geography-art.avif',
-    'Literature': '/art/literature-art.avif',
-    'Computer Science': '/art/cs-art.avif',
-    'Economics': '/art/economics-art.avif',
-    'Art': '/art/art-art.avif',
-    'Other': '/art/default-art.avif',
+    'Mathematics': '/art/mathematics.avif',
+    'History': '/art/history.webp',
+    'Geography': '/art/geography.webp',
+    'Literature': '/art/literature.jpeg',
+    'Computer Science': '/art/computer_science.avif',
+    'Economics': '/art/economics.jpg',
+    'Art': '/art/art.jpg',
+    'Other': '/art/other.jpg',
     // Add more subjects and their image paths here
 };
 
