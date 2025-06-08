@@ -18,7 +18,7 @@ const HomePageContent = ({ companions, recentSessionsCompanions }: HomePageConte
     <main>
       <h1>{t('popularCompanions')}</h1>
 
-      <section className="home-section">
+      <section className="companions-grid">
         {companions.map((companion) => (
           <CompanionCard
             key={companion.id}

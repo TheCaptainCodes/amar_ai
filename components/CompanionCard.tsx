@@ -73,7 +73,7 @@ const CompanionCard = ({
       <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-10" />
 
       {/* Content */}
-      <div className="relative z-20 p-5 text-white">
+      <div className="relative z-20 p-5 text-white flex flex-col h-full">
         <div className="flex justify-between items-center mb-4">
           <div 
             className="px-3 py-1 rounded-full text-sm font-medium bg-white/20"
@@ -94,20 +94,22 @@ const CompanionCard = ({
           </button>
         </div>
 
-        <h2 className="text-2xl font-bold mb-2">{name}</h2>
-        <p className="text-sm opacity-80 mb-4">{topic}</p>
-        
-        <div className="flex items-center gap-2 mb-6 opacity-80">
-          <Image
-            src="/icons/clock.svg"
-            alt="duration"
-            width={14}
-            height={14}
-          />
-          <p className="text-sm">{duration} {t('minutes')}</p>
+        <div className="flex-grow">
+          <h2 className="text-2xl font-bold mb-2">{name}</h2>
+          <p className="text-sm opacity-80 mb-4">{topic}</p>
+          
+          <div className="flex items-center gap-2 mb-6 opacity-80">
+            <Image
+              src="/icons/clock.svg"
+              alt="duration"
+              width={14}
+              height={14}
+            />
+            <p className="text-sm">{duration} {t('minutes')}</p>
+          </div>
         </div>
 
-        <Link href={`/companions/${id}`} className="w-full block">
+        <Link href={`/companions/${id}`} className="w-full block mt-auto">
           <button 
             className="w-full py-2.5 px-4 rounded-xl font-medium transition-opacity bg-white text-black hover:opacity-90"
           >
