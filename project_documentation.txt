@@ -1,0 +1,224 @@
+AMAR AI - PROJECT DOCUMENTATION
+=============================
+
+1. AUTHENTICATION SYSTEM
+-----------------------
+Implementation:
+- Uses Clerk for authentication management
+- Protected routes through middleware (middleware.ts)
+- User authentication state managed by ClerkProvider in app/layout.tsx
+- Sign-in/Sign-up pages with Clerk components
+- User profile management through Clerk's UserButton component
+- Integration with Supabase for database access using authenticated tokens
+
+Features:
+- Secure user authentication
+- Session management
+- Protected API routes
+- User profile customization
+- Multi-language support for authentication UI
+
+2. CHAT SYSTEM
+-------------
+Implementation:
+- Real-time chat interface using React components
+- AI-powered responses using Groq's Llama 4 model
+- Markdown rendering with math support
+- Voice input capabilities
+
+Features:
+a) Markdown Support:
+   - Math equations using KaTeX and MathJax
+   - Code syntax highlighting
+   - Tables, lists, and other formatting
+   - GitHub Flavored Markdown
+
+b) AI Integration:
+   - Uses Groq's Llama 4 model for responses
+   - Context-aware conversations
+   - Multi-language support
+   - Error handling and fallbacks
+
+c) Voice Input:
+   - Speech-to-text conversion
+   - Real-time transcription
+   - Voice command support
+
+d) UI Features:
+   - Real-time message updates
+   - Loading states
+   - Error handling
+   - Responsive design
+   - Auto-scrolling
+   - Message history
+
+3. COMPANIONS FEATURE
+--------------------
+Implementation:
+- Custom AI companion creation system
+- Voice-based interaction using Vapi AI
+- Study notes generation
+- Session tracking
+
+Features:
+a) Companion Creation:
+   - Customizable name, subject, and topic
+   - Voice selection (male/female)
+   - Personality/style selection
+   - Duration setting
+   - Study notes generation options
+
+b) AI Interaction:
+   - Real-time voice conversations
+   - Natural language processing
+   - Context-aware responses
+   - Subject-specific tutoring
+
+c) Study Notes:
+   - Automatic generation after sessions
+   - Multiple styles (detailed, concise, visual)
+   - PDF export
+   - Mermaid.js diagrams
+   - Mathematical equations
+
+d) Session Management:
+   - Session history tracking
+   - Progress monitoring
+   - Bookmarking system
+   - Duration tracking
+
+4. PROGRESS TRACKING
+-------------------
+Implementation:
+- User progress monitoring
+- Session history
+- Analytics dashboard
+
+Features:
+a) Progress Metrics:
+   - Lessons completed
+   - Companions created
+   - Session duration
+   - Subject-wise progress
+
+b) Session History:
+   - Recent sessions
+   - Session details
+   - Performance tracking
+
+c) Bookmarks:
+   - Save favorite companions
+   - Quick access to saved content
+
+d) Analytics:
+   - Learning patterns
+   - Time spent
+   - Subject preferences
+   - Progress visualization
+
+TECHNOLOGY STACK
+---------------
+- Frontend Framework: Next.js
+- Database: Supabase
+- Authentication: Clerk
+- AI Processing: Groq
+- Voice Interactions: Vapi AI
+- UI Libraries: Radix UI, Tailwind CSS
+- Language: TypeScript
+- Multi-language Support: English and Bengali
+
+ARCHITECTURE
+-----------
+The system follows modern web development best practices:
+- Server-side rendering where appropriate
+- Client-side interactivity for real-time features
+- Secure authentication and authorization
+- Responsive design
+- Error handling and fallbacks
+- Performance optimization
+- Accessibility considerations
+
+DATABASE STRUCTURE
+----------------
+Main Collections:
+1. Companions
+   - ID
+   - Name
+   - Subject
+   - Topic
+   - Duration
+   - Author
+   - Voice settings
+   - Style settings
+   - Notes generation settings
+
+2. Session History
+   - Session ID
+   - Companion ID
+   - User ID
+   - Duration
+   - Timestamp
+   - Notes URL (if generated)
+
+3. Bookmarks
+   - User ID
+   - Companion ID
+   - Timestamp
+
+4. User Progress
+   - User ID
+   - Lessons completed
+   - Companions created
+   - Total session time
+   - Subject-wise progress
+
+SECURITY FEATURES
+---------------
+- Secure authentication through Clerk
+- Protected API routes
+- Row-level security in Supabase
+- Secure file storage for notes
+- Rate limiting
+- Input validation
+- XSS protection
+- CSRF protection
+
+PERFORMANCE OPTIMIZATION
+----------------------
+- Server-side rendering for initial load
+- Client-side caching
+- Optimized image loading
+- Lazy loading of components
+- Efficient database queries
+- API response caching
+- Asset optimization
+
+ACCESSIBILITY
+------------
+- ARIA labels
+- Keyboard navigation
+- Screen reader support
+- Color contrast compliance
+- Responsive design
+- Multi-language support
+- Alternative text for images
+
+ERROR HANDLING
+-------------
+- Graceful error recovery
+- User-friendly error messages
+- Error logging and monitoring
+- Fallback UI components
+- Network error handling
+- API error handling
+- Form validation
+
+MONITORING AND ANALYTICS
+----------------------
+- Error tracking with Sentry
+- Performance monitoring
+- User behavior analytics
+- Session tracking
+- Error logging
+- Usage statistics
+- Performance metrics 
