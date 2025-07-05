@@ -6,6 +6,9 @@ export const createSupabaseClient = async () => {
         const { getToken } = await auth();
         const token = await getToken();
         
+        // Log the token for debugging (remove in production)
+        console.log('Clerk JWT Token:', token ? token.substring(0, 50) + '...' : 'No token');
+        
         // Create client with or without token
         return createClient(
             process.env.NEXT_PUBLIC_SUPABASE_URL!,

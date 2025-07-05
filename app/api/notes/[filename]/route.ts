@@ -6,13 +6,16 @@ export async function GET(
   { params }: { params: { filename: string } }
 ) {
   try {
-    const supabase = createSupabaseClient();
+    console.log('Accessing notes file:', params.filename);
+    
+    const supabase = await createSupabaseClient();
     
     const { data, error } = await supabase.storage
       .from('notes')
       .download(params.filename);
     
     if (error) {
+      console.error('Supabase storage error:', error);
       throw new Error(error.message);
     }
     

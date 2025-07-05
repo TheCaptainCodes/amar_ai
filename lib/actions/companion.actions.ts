@@ -296,21 +296,14 @@ export const createCompanion = async (formData: CreateCompanion) => {
 
             if (uploadError) throw new Error(uploadError.message);
 
-            // Get a signed URL that expires in 1 week
-            const { data: urlData, error: urlError } = await storageClient.storage
-                .from('notes')
-                .createSignedUrl(safeFilename, 60 * 60 * 24 * 7); // 1 week in seconds
-
-            if (urlError || !urlData?.signedUrl) {
-                throw new Error(urlError?.message || 'Failed to generate signed URL');
-            }
-
-            const signedUrl = urlData.signedUrl;
+            // Since the bucket is public, use a direct URL instead of signed URL
+            const publicUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/notes/${safeFilename}`;
+            console.log('Generated public URL:', publicUrl);
 
             // Update companion with notes URL using the same client
             const { error: updateError } = await storageClient
                 .from('companions')
-                .update({ notes_url: signedUrl })
+                .update({ notes_url: publicUrl })
                 .eq('id', companion.id);
 
             if (updateError) throw new Error(updateError.message);
@@ -490,26 +483,18 @@ export const refreshNotesUrl = async (companionId: string) => {
         throw new Error('Invalid notes URL format');
     }
     
-    // Generate new signed URL
-    const { data, error: urlError } = await supabase.storage
-        .from('notes')
-        .createSignedUrl(filename, 60 * 60 * 24 * 7); // 1 week in seconds
-        
-    if (urlError || !data?.signedUrl) {
-        throw new Error(urlError?.message || 'Failed to generate new signed URL');
-    }
-    
-    const signedUrl = data.signedUrl;
+    // Since the bucket is public, generate a direct URL
+    const publicUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/notes/${filename}`;
 
     // Update companion with new URL
     const { error: updateError } = await supabase
         .from('companions')
-        .update({ notes_url: signedUrl })
+        .update({ notes_url: publicUrl })
         .eq('id', companionId);
         
     if (updateError) {
         throw new Error('Failed to update notes URL');
     }
     
-    return signedUrl;
+    return publicUrl;
 };
